@@ -30,7 +30,7 @@ $servername = "localhost";
 <h3>Customer Functions</h3>
 <ul>
 		<li><a href="movie_search.php">Movie Search</a></li>
-		<li><a>Movie Checkout</a></li>
+		<li><a href="movie_checkout.php">Movie Checkout</a></li>
 		<li><a>Movie Return</a></li>
 		<li><a>Movie Reserve</a></li>
 		<li><a>Movie Fines</a></li>
