@@ -17,7 +17,7 @@
 
 ### Site requirements
 1. Main Menu:
-- Customer functions (ask for card number/userID, and then show sub-menu)
+- ~~Customer functions (ask for card number/userID, and then show sub-menu)~~
 - Administrative Functions (ask for ID and password, and then show submenu)
 - Quit
 2. Customer Functions Submenu:
@@ -28,7 +28,7 @@
 - compute fine (for a movie copy checked out by a customer based on current date)
 - print the list of movies reserved by a customer and their status
 - print the movie ids and movie titles of movies directed by a director
-- Quit (log out)
+- ~~Quit (log out)~~
 3. Administrative Functions Menu: 
 - add a movie copy
 - search a movie and check the status of its copies
