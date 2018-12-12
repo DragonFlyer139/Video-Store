@@ -1,16 +1,16 @@
 <html>
 <head></head>
 <body>
-<?php 
+<?php
 
-//You need to add some security statements to make 
+//You need to add some security statements to make
 //sure things only appear
 session_start();
 //echo "session started<br>";
 $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "video_store"; 
+    $dbname = "video_store";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,10 +22,9 @@ $servername = "localhost";
 
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
-	
-	echo "Here you say hi to the person if you want" . "<br>";
+
 	echo "Hey there " . $name;
-	
+
 	echo "<h3>Movie Checkout</h3>";
 ?>
 
@@ -35,25 +34,25 @@ $servername = "localhost";
 </form>
 
 <hr>
-<?php    
+<?php
 if(isset($_POST['submit'])){ //check if form was submitted
-	
+
 	echo "<h3> Select Movie to Checkout </h3>";
-	
+
 	$input = $_POST['title']; //get input text
-	$sql = "select * from movie where title = " . "\"".$_POST["title"]. "\";";
+	$sql = "select title, director, COPYNO from movie, copy where title = " . "\"".$_POST["title"]. "\" and copy.movieid=movie.movieid and (copy.stat='in-store' or copy.stat=" .$id. ");";
 
 	$result = $conn->query($sql);
 
-	if ($result->num_rows == 0) 
+	if ($result->num_rows == 0)
 	  echo "No results found." . "<br>";
 	else
 	{
 		while($row = $result->fetch_assoc()) {
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
-			
+
 			echo "<input type=\"radio\" name=\"selection\" value=";
-			echo "\"" . $row["OBJECTID"] . "\"";
+			echo "\"" . $row["COPYNO"] . "\"";
 			echo ">";
 			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
@@ -67,8 +66,12 @@ if(isset($_POST['submit'])){ //check if form was submitted
 
 if(isset($_POST['checkout_submit'])){
 	echo "congrats, you checked out a movie, but not really<br>";
-	echo "You checked out movie with ID #: ". $_POST["selection"]."<br>";
-}    
+	echo "You checked out copy ". $_POST["selection"]."<br>";
+  mysqli_query($conn,"
+  UPDATE copy SET STAT = 'checkout' WHERE copy.COPYNO = ". $_POST["selection"].";");
+  mysqli_close($conn);
+}
 ?>
+<a href="member_menu.php">Back</a>
 </body>
 </html>
