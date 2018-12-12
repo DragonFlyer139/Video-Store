@@ -7,7 +7,7 @@
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
   First Name: <input type="text" name = "FirstName"><br>
   Last Name: <input type="text" name = "LastName"><br>
-	Username: <input type="text" name = "UserName"><br>
+	Card Number/User ID: <input type="text" name = "UserName"><br>
 	Password: <input type = "password" name = "Password"><br>
 	Re-enter Password: <input type = "password" name = "Password2"><br>
 	

@@ -61,9 +61,9 @@ VALUES ("1", "Batman Begins", "Christopher Nolan", "Emma Thomas", "Christian Bal
 	   ("6", "Wolf of Wall Street", "Martin Scorsese", "Leonardo DiCaprio", "Leonardo DiCaprio", "Margot Robbie", "Comedy");
 
 INSERT INTO MEMBER
-VALUES ("123456", "514 Happy Address", "Ryan Zunker"),
-	   ("234567", "845 Other Street", "Maggi Lopez"),
-	   ("345678", "215 Name of Street", "Leo Carrico");
+VALUES ("123456", "514 Happy Address", "Ryan Zunker","password1"),
+	   ("234567", "845 Other Street", "Maggi Lopez","maggi123"),
+	   ("345678", "215 Name of Street", "Leo Carrico","mypassword");
 	   
 	   
 /*
