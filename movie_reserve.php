@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>Reserve A Movie</title></head>
 <body>
 <?php
 
@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 	echo "<h3> Select Movie to Reserve </h3>";
 
 	$input = $_POST['title']; //get input text
-  $sql = "select title, director, COPYNO from movie, copy where title = " . "\"".$_POST["title"]. "\" and copy.movieid=movie.movieid and copy.stat='in-store';";
+  $sql = "select title, director, COPYNO from movie, copy where title like " . "\"%".$_POST["title"]. "%\" and copy.movieid=movie.movieid and copy.stat='in-store';";
 	$result = $conn->query($sql);
 	if ($result->num_rows == 0)
 	  echo "No results found." . "<br>";
