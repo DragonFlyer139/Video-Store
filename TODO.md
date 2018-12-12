@@ -1,4 +1,4 @@
-# Video Store To-Do List
+# To-Do List
 + get everyone updated
 + finish php code by Thursday, 12/13
 + turn in with styles by 9AM Friday, 12/14
