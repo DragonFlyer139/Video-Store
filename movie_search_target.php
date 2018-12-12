@@ -19,7 +19,7 @@ $servername = "localhost";
 
     $id = isset($_SESSION["memberid"]) ? $_SESSION["memberid"] : "ID NOT FOUND";
 	
-    $sql = "select * from movie where " . $_POST["search_by"] . " = " . "\"".$_POST["search"]. "\";";
+    $sql = "select * from movie where " . $_POST["search_by"] . " LIKE " . "\"%".$_POST["search"]. "%\";";
 	
     $result = $conn->query($sql);
 	

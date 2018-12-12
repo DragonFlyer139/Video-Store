@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 	echo "<h3> Select Movie to Checkout </h3>";
 	
 	$input = $_POST['title']; //get input text
-	$sql = "select * from movie where title = " . "\"".$_POST["title"]. "\";";
+	$sql = "select * from movie where title LIKE " . "\"%".$_POST["title"]. "%\";";
 
 	$result = $conn->query($sql);
 
@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
 			
 			echo "<input type=\"radio\" name=\"selection\" value=";
-			echo "\"" . $row["OBJECTID"] . "\"";
+			echo "\"" . $row["MOVIEID"] . "\"";
 			echo ">";
 			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
