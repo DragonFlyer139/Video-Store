@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>Member Homepage</title></head>
 <body>
 
 <?php
@@ -35,7 +35,7 @@ $servername = "localhost";
 		<li><a href=\"movie_checkout.php\">Movie Checkout</a></li>
 		<li><a href=\"movie_return.php\">Movie Return</a></li>
 		<li><a href=\"movie_reserve.php\">Movie Reserve</a></li>
-		<li><a>Movie Fines</a></li>
+		<li><a href=\"movie_fines.php\">Movie Fines</a></li>
 		<li><a href=\"movie_reservesearch.php\">Reserved Movies</a></li>
 		<li><a>Movies by Director</a></li>
 		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
