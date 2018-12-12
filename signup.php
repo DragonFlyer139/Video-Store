@@ -17,11 +17,12 @@
 Don't have an account? Sign up <a href="signup.php">here</a>
 
 <?php
+
   session_start();
   if(isset($_POST["FirstName"]) || isset($_POST["LastName"]) || isset($_POST["UserName"]) || isset($_POST["Password"]) )
   {
-  $sql = "INSERT INTO MEMBER (fname, lname, username, password) values ('";
-  $sql .= $_POST["FirstName"]."','".$_POST["LastName"]."','".$_POST["UserName"]."','".$_POST["Password"]."')";
+  $sql = "INSERT INTO MEMBER (membername, memberid, password) values ('";
+  $sql .= $_POST["FirstName"]." ".$_POST["LastName"]."','".$_POST["UserName"]."','".$_POST["Password"]."');";
   
   $servername = "localhost";
   $username = "root";
@@ -36,14 +37,14 @@ Don't have an account? Sign up <a href="signup.php">here</a>
   {
     die("Connection failed: " . $conn->connect_error);
   }
-  //echo "Connected successfully<br>";
+  echo "Connected successfully<br>";
   //echo $sql;
   $result = $conn->query($sql);
+  //echo $result;
   if($result)
   {
     echo "<br>User created successfully";
-    $_SESSION["FirstName"] = $_POST["FirstName"];
-    $_SESSION["LastName"] = $_POST["LastName"];
+    $_SESSION["membername"] = $_POST["FirstName"]." ".$_POST["LastName"];
   }
   else
     echo "<br>Failed to create user!";

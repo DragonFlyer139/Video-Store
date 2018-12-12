@@ -4,9 +4,12 @@
 
 <?php 
 
-//You need to add some security statements to make 
-//sure things only 
+
 session_start();
+
+//check to make sure someone is logged in
+if (isset($_SESSION["memberid"]))
+{
 //echo "session started<br>";
 $servername = "localhost";
     $username = "root";
@@ -24,20 +27,27 @@ $servername = "localhost";
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
 	
-	echo "Here you say hi to the person if you want" . "<br>";
 	echo "Hey there " . $name;
-?>
-<h3>Customer Functions</h3>
+	
+	echo "<h3>Customer Functions</h3>
 <ul>
-		<li><a href="movie_search.php">Movie Search</a></li>
-		<li><a href="movie_checkout.php">Movie Checkout</a></li>
+		<li><a href=\"movie_search.php\">Movie Search</a></li>
+		<li><a href=\"movie_checkout.php\">Movie Checkout</a></li>
 		<li><a>Movie Return</a></li>
 		<li><a>Movie Reserve</a></li>
 		<li><a>Movie Fines</a></li>
 		<li><a>Reserved Movies</a></li>
 		<li><a>Movies by Director</a></li>
-		<li><a href="quit.php">Quit(Log Out)</a></li>
+		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
 		
-</ul>
+</ul>";
+}
+//if no one is logged in
+else
+{
+	echo "You are not logged in. Please <a href=\"member_login.php\">log in</a> or <a href=\"signup.php\">sign up</a>.";
+}
+?>
+
 </body>
 </html>

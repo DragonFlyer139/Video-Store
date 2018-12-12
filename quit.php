@@ -5,6 +5,7 @@
 <h3>Quit</h3>
 <p>
 Apparently you decided to exit the program.
+<a href="index.php">Return to Home</a>
 </p>
 <?php
 	session_start();
