@@ -40,3 +40,4 @@
 - find the avereage fine paid per customer
 - Quit (log out)
 
+~~This is the syntax for crossing out :D~~
