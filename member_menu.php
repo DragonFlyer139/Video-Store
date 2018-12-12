@@ -2,7 +2,7 @@
 <head></head>
 <body>
 
-<?php 
+<?php
 
 
 session_start();
@@ -14,7 +14,7 @@ if (isset($_SESSION["memberid"]))
 $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "video_store"; 
+    $dbname = "video_store";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -26,20 +26,20 @@ $servername = "localhost";
 
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
-	
+
 	echo "Hey there " . $name;
-	
+
 	echo "<h3>Customer Functions</h3>
 <ul>
 		<li><a href=\"movie_search.php\">Movie Search</a></li>
 		<li><a href=\"movie_checkout.php\">Movie Checkout</a></li>
-		<li><a>Movie Return</a></li>
-		<li><a>Movie Reserve</a></li>
+		<li><a href=\"movie_return.php\">Movie Return</a></li>
+		<li><a href=\"movie_reserve.php\">Movie Reserve</a></li>
 		<li><a>Movie Fines</a></li>
-		<li><a>Reserved Movies</a></li>
+		<li><a href=\"movie_reservesearch.php\">Reserved Movies</a></li>
 		<li><a>Movies by Director</a></li>
 		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
-		
+
 </ul>";
 }
 //if no one is logged in
