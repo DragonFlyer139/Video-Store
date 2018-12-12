@@ -1,156 +1,138 @@
-CREATE TABLE EMPLOYEE
-(NAME VARCHAR(15) NOT NULL,
-EMPLOYEEID CHAR(9) NOT NULL,
-ADDRESS VARCHAR(30),
-PHONE CHAR(9),
-PRIMARY KEY (EMPLOYEEID));
+create table employee
+(name varchar(15) not null,
+employeeid int(9) not null auto_increment,
+address varchar(30),
+phone char(9),
+primary key (employeeid));
 
-CREATE TABLE HOURLY
-(EMPLOYEEID CHAR(9) NOT NULL,
-PRIMARY KEY (EMPLOYEEID));
+create table hourly
+(employeeid int(9) not null auto_increment,
+primary key (employeeid));
 
-CREATE TABLE STORE
-(STORENO CHAR(10) NOT NULL,
-SADDRESS VARCHAR(30),
-SPHONE CHAR(9),
-PRIMARY KEY (STORENO));
+create table store
+(storeno int(10) not null auto_increment,
+saddress varchar(30),
+sphone char(9),
+primary key (storeno));
 
-CREATE TABLE FULL_TIME
-(EMPLOYEEID CHAR(9) NOT NULL,
-SALARY INTEGER,
-STORENO CHAR(10) NOT NULL,
-CONSTRAINT fk_FULLTIMESTORENO
-FOREIGN KEY (STORENO) REFERENCES STORE(STORENO)
-ON DELETE CASCADE,
-CONSTRAINT fk_FULLTIMEEMPLOYEE
-FOREIGN KEY (EMPLOYEEID) REFERENCES EMPLOYEE(EMPLOYEEID)
-ON DELETE CASCADE);
-             
-CREATE TABLE HWORKS
-(EMPLOYEEID CHAR(9) NOT NULL,
-RATE INTEGER,
-HOURS INTEGER,
-STORENO CHAR(10) NOT NULL,
-CONSTRAINT fk_HWORKSSTORENO
-FOREIGN KEY (STORENO) REFERENCES STORE(STORENO)
-ON DELETE CASCADE,
-CONSTRAINT fk_HOURLYEMPLOYEE
-FOREIGN KEY (EMPLOYEEID) REFERENCES EMPLOYEE(EMPLOYEEID)
-ON DELETE CASCADE);
+create table full_time
+(employeeid int(9) not null auto_increment,
+salary integer,
+storeno int(10) not null,
+constraint fk_fulltimestoreno
+foreign key (storeno) references store(storeno)
+on delete cascade,
+constraint fk_fulltimeemployee
+foreign key (employeeid) references employee(employeeid)
+on delete cascade);
 
-CREATE TABLE MOVIE
-(OBJECTID CHAR(9) NOT NULL,
-TITLE VARCHAR(15),
-DIRECTOR VARCHAR(15),
-PRODUCER VARCHAR(15),
-ACTOR1 VARCHAR(15),
-ACTOR2 VARCHAR(15),
-CATEGORY VARCHAR(15),
-PRIMARY KEY (OBJECTID));
-              
-CREATE TABLE PLAYER
-(OBJECTID CHAR(9) NOT NULL,
-MODEL VARCHAR(15),
-BRAND VARCHAR(15),
-PLAYERFEATURE VARCHAR(15),
-PRIMARY KEY (OBJECTID));
- 
-CREATE TABLE STORE_OBJECT
-(OBJECTID CHAR(9) NOT NULL,
-DAILYCHARGE INT,
-COPYNO CHAR(9) NOT NULL,
-PRIMARY KEY (OBJECTID));
+create table hworks
+(employeeid int(9) not null auto_increment,
+rate integer,
+hours integer,
+storeno int(10) not null,
+constraint fk_hworksstoreno
+foreign key (storeno) references store(storeno)
+on delete cascade,
+constraint fk_hourlyemployee
+foreign key (employeeid) references employee(employeeid)
+on delete cascade);
 
-CREATE TABLE COPY
-(COPYNO CHAR(9) NOT NULL,
-TYPE VARCHAR(10),
-STAT VARCHAR(10),
-OBJECTID CHAR(9) NOT NULL,
-PRIMARY KEY (COPYNO),
-CONSTRAINT fk_COPYOBJECTID
-FOREIGN KEY (OBJECTID) 
-REFERENCES MOVIE(OBJECTID)
-ON DELETE CASCADE);
+create table movie
+(movieid int(9) not null auto_increment,
+title varchar(15),
+director varchar(15),
+producer varchar(15),
+actor1 varchar(15),
+actor2 varchar(15),
+category varchar(15),
+primary key (movieid));
 
-ALTER TABLE STORE_OBJECT
-ADD CONSTRAINT fk_SOCOPY
-FOREIGN KEY (COPYNO) REFERENCES COPY(COPYNO);
-             
-CREATE TABLE PLAYER_DEVICE
-(COPYNO CHAR(9) NOT NULL,
-STORENO CHAR(10) NOT NULL,
-PRIMARY KEY (COPYNO),
-FOREIGN KEY (STORENO) 
-REFERENCES STORE(STORENO));
-             
-CREATE TABLE NO_ASSIGNED
-(OBJECTID CHAR(9) NOT NULL,
-STORENO CHAR(10) NOT NULL,
-NODVD int,
-NOBD int,
-FOREIGN KEY (OBJECTID) 
-REFERENCES MOVIE(OBJECTID),
-FOREIGN KEY (STORENO) 
-REFERENCES STORE(STORENO));
-             
-CREATE TABLE MEMBER
-(MEMBERID CHAR(9) NOT NULL,
-ADDRESS CHAR(30),
-MEMBERNAME CHAR(15),
-PASSWORD CHAR(15),
-BALANCE DECIMAL(10,2) NOT NULL DEFAULT '0',
-PRIMARY KEY (MEMBERID));
-                 
-CREATE TABLE INVOICE_TRANSACTION
-(TRANSACTION_ID char(9) NOT NULL,
-STAMP DATETIME,
-AMOUNT int,
-TYPE VARCHAR(10),
-STORENO CHAR(10) NOT NULL,
-COPYNO CHAR(9) NOT NULL,
-MEMBERID CHAR(9) NOT NULL,
-PRIMARY KEY (TRANSACTION_ID),
-FOREIGN KEY (STORENO)
-REFERENCES STORE(STORENO),
-FOREIGN KEY (COPYNO)
-REFERENCES COPY(COPYNO),
-FOREIGN KEY (MEMBERID)
-REFERENCES MEMBER(MEMBERID));
+create table player
+(objectid int(9) not null auto_increment,
+model varchar(15),
+brand varchar(15),
+playerfeature varchar(15),
+primary key (objectid));
 
-ALTER TABLE EMPLOYEE
-ADD PASSWORD VARCHAR(15);
+create table store_object
+(objectid int(9) not null auto_increment,
+dailycharge int,
+copyno int(9) not null,
+primary key (objectid));
 
-DROP TABLE HOURLY;
+create table copy
+(copyno int(9) not null auto_increment,
+type varchar(10),
+stat varchar(10),
+movieid int(9) not null,
+primary key (copyno),
+constraint fk_copyobjectid
+foreign key (movieid)
+references movie(movieid)
+on delete cascade);
 
-ALTER TABLE MOVIE
-CHANGE COLUMN OBJECTID MOVIEID
-CHAR(9);
+alter table store_object
+add constraint fk_socopy
+foreign key (copyno) references copy(copyno);
 
-ALTER TABLE PLAYER
-CHANGE COLUMN OBJECTID PLAYERID
-CHAR(9);
+create table player_device
+(copyno int(9) not null,
+storeno int(10) not null,
+primary key (copyno),
+foreign key (storeno)
+references store(storeno));
 
-RENAME TABLE STORE_OBJECT to STORE_CHARGE;
+create table no_assigned
+(movieid int(9) not null,
+storeno int(10) not null,
+nodvd int,
+nobd int,
+foreign key (movieid)
+references movie(movieid),
+foreign key (storeno)
+references store(storeno));
 
-ALTER TABLE STORE_CHARGE
-CHANGE COLUMN OBJECTID CHARGEID
-CHAR(9);
+create table member
+(memberid int(9) not null auto_increment,
+address char(30),
+membername char(15),
+password char(15),
+primary key (memberid));
 
-ALTER TABLE NO_ASSIGNED
-CHANGE COLUMN OBJECTID MOVIEID
-CHAR(9);
+create table invoice_transaction
+(transaction_id int(9) not null auto_increment,
+stamp datetime,
+amount int,
+type int(10),
+storeno int(10) not null,
+copyno int(9) not null,
+memberid int(9) not null,
+primary key (transaction_id),
+foreign key (storeno)
+references store(storeno),
+foreign key (copyno)
+references copy(copyno),
+foreign key (memberid)
+references member(memberid));
+
+alter table employee
+add password varchar(15);
+
+drop table hourly;
+alter table player
+change column objectid playerid
+int(9);
+
+rename table store_object to store_charge;
 
 /*
-Ended up creating a separate fk instead of replacing copyno
+ended up creating a separate fk instead of replacing copyno
 */
-ALTER TABLE PLAYER_DEVICE
-ADD PLAYERID CHAR(9);
+alter table player_device
+add playerid int(9);
 
 
-ALTER TABLE PLAYER_DEVICE
-ADD CONSTRAINT fk_PLYR_DEVICE_CPY
-FOREIGN KEY (PLAYERID) REFERENCES PLAYER(PLAYERID);
-
-ALTER TABLE COPY
-CHANGE COLUMN OBJECTID MOVIEID
-CHAR(9);
+alter table player_device
+add constraint fk_plyr_device_cpy
+foreign key (playerid) references player(playerid);
