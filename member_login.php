@@ -12,6 +12,5 @@
 
 Don't have an account? Sign up <a href="signup.php">here</a>
 
-
 </body>
 </html>
