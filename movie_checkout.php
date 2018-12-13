@@ -41,8 +41,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 
 	$input = $_POST['title']; //get input text
 
-	$sql = "select title, director, COPYNO from movie, copy where title LIKE " . "\"%".$_POST["title"]. "%\" and copy.movieid=movie.movieid and (copy.stat='in-store' or copy.stat=" .$id. ");";
-
+	$sql = "select title, director, copyno from movie, copy where title LIKE " . "\"%".$_POST["title"]. "%\" and copy.movieid=movie.movieid and (copy.stat='in-store' or copy.stat=" .$id. ");";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows == 0)
@@ -50,12 +49,14 @@ if(isset($_POST['submit'])){ //check if form was submitted
 	else
 	{
 		while($row = $result->fetch_assoc()) {
+			
+			
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
 
 			echo "<input type=\"radio\" name=\"selection\" value=";
-
-			echo "\"" . $row["COPYNO"] . "\"";
+			echo "\"" . $row["copyno"] . "\"";
 			echo ">";
+			echo $row["copyno"] . " | ";
 			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
@@ -65,17 +66,22 @@ if(isset($_POST['submit'])){ //check if form was submitted
 		}
 	}
 }
-
+?>
+<?php
 if(isset($_POST['checkout_submit'])){
 	echo "congrats, you checked out a movie, but not really<br>";
 	echo "You checked out copy ". $_POST["selection"]."<br>";
-  mysqli_query($conn,"UPDATE copy SET STAT = 'Checkout' WHERE copy.COPYNO = ". $_POST["selection"].";");
-  $date_rented = date("Y-m-d h:i:s");
-  $sql="insert into invoice_transaction(stamp,type,copyno,memberid) values('".$date_rented."','Checkout','". $_POST["selection"]."','".$_SESSION["memberid"]."');";
-  $result = $conn->query($sql);
-  echo $sql;
-  echo $result;
-  mysqli_close($conn);
+  
+	/*Charge $7 at checkout*/
+  
+	mysqli_query($conn,"UPDATE copy SET STAT = 'Checkout' WHERE copy.COPYNO = ". $_POST["selection"].";");
+	$date_rented = date("Y-m-d h:i:s");
+	$sql="insert into invoice_transaction(stamp,type,copyno,memberid) values('".$date_rented."','Checkout','". $_POST["selection"]."','".$_SESSION["memberid"]."');";
+	$result = $conn->query($sql);
+	
+	echo $sql;
+	echo $result;
+	mysqli_close($conn);
 }
 ?>
 <a href="member_menu.php">Back</a>
