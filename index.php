@@ -1,12 +1,27 @@
 <html>
-<head><title>Video Store Software</title></head>
+<head>
+	<title>Video Store</title>
+	<meta charset = "UTF-8">
+	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="img/icon.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
 <body>
-
-<h3>Main Menu</h3>
-<ul>
-	<li><a href="member_login.php">Member Login</a></li>
-	<li><a href="admin_login.php">Administrative Login</a></li>
-	<li><a href="quit.php">Quit</a></li>
-</ul>
+	<div class="modal-dialog text-center">
+		<div class="main-section">
+			<div class="modal-content">
+				<h2>Main Menu</h2>
+				<div class="menu">
+					<a href="member_login.php"><div class="menu-item" >Member Login</div></a>
+					<a href="admin_login.php"><div class="menu-item" >Administrator Login</div></a>
+					<a href="quit.php"><div class="menu-item quit">Quit</div></a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
