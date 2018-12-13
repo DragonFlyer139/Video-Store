@@ -18,11 +18,12 @@ $servername = "localhost";
     }
     //echo "Connected successfully<br>";
 
-    $uname = isset($_GET["Username"]) ? $_GET["Username"] : "";
-	  $password = isset($_GET["Password"]) ? $_GET["Password"] : "";
+    $id = isset($_POST["Username"]) ? $_POST["Username"] : "ID NOT FOUND";
+	$_SESSION["adminid"] = $id;
+	echo "ID NUMBER: ".$id."<br>";
+	$password = isset($_POST["Password"]) ? $_POST["Password"] : "PASSWORD NOT FOUND";
 	
-    $sql = "select fname, lname from user where username='" . $uname ."'";
-    $sql .= " and password = '" . $password . "'";
+    $sql = "select name from employee where employeeid='" . $id ."' and password = '" . $password . "'";
     //echo($sql);
     $result = $conn->query($sql);
     
@@ -31,11 +32,9 @@ $servername = "localhost";
     else
     {
       $row = $result->fetch_assoc();
-      $fname = $row["fname"];
-      $lname = $row["lname"];
-      $_SESSION["FirstName"] = $fname;
-      $_SESSION["LastName"] = $lname;
-      header("Location: menu.php");
+      $name = $row["name"];
+      $_SESSION["adminname"] = $name;
+      header("Location: admin_menu.php");
     }
 ?>
 <hr>

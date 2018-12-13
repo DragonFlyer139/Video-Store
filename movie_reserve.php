@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head><title>Reserve A Movie</title></head>
 <body>
 <?php
 
@@ -25,7 +25,7 @@ $servername = "localhost";
 
 	echo "Hey there " . $name;
 
-	echo "<h3>Movie Checkout</h3>";
+	echo "<h3>Movie Reserve</h3>";
 ?>
 
 <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
@@ -37,21 +37,18 @@ $servername = "localhost";
 <?php
 if(isset($_POST['submit'])){ //check if form was submitted
 
-	echo "<h3> Select Movie to Checkout </h3>";
+	echo "<h3> Select Movie to Reserve </h3>";
 
 	$input = $_POST['title']; //get input text
-
-	$sql = "select title, director, COPYNO from movie, copy where title LIKE " . "\"%".$_POST["title"]. "%\" and copy.movieid=movie.movieid and (copy.stat='in-store' or copy.stat=" .$id. ");";
-
+  $sql = "select title, director, COPYNO from movie, copy where title like " . "\"%".$_POST["title"]. "%\" and copy.movieid=movie.movieid and copy.stat='in-store';";
 	$result = $conn->query($sql);
-
 	if ($result->num_rows == 0)
 	  echo "No results found." . "<br>";
 	else
 	{
 		while($row = $result->fetch_assoc()) {
+      $copy=$row["COPYNO"];
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
-
 			echo "<input type=\"radio\" name=\"selection\" value=";
 			echo "\"" . $row["COPYNO"] . "\"";
 			echo ">";
@@ -59,21 +56,16 @@ if(isset($_POST['submit'])){ //check if form was submitted
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
-			echo "<input name=\"checkout_submit\" type=\"submit\">";
+			echo "<input name=\"reserve_submit\" type=\"submit\">";
 			echo "</form>";
 		}
 	}
 }
-
-if(isset($_POST['checkout_submit'])){
-	echo "congrats, you checked out a movie, but not really<br>";
-	echo "You checked out copy ". $_POST["selection"]."<br>";
-  mysqli_query($conn,"UPDATE copy SET STAT = 'Checkout' WHERE copy.COPYNO = ". $_POST["selection"].";");
-  $date_rented = date("Y-m-d h:i:s");
-  $sql="insert into invoice_transaction(stamp,type,copyno,memberid) values('".$date_rented."','Checkout','". $_POST["selection"]."','".$_SESSION["memberid"]."');";
-  $result = $conn->query($sql);
-  echo $sql;
-  echo $result;
+if(isset($_POST['reserve_submit'])){
+	echo "congrats, you reserved a movie, but not really<br>";
+	echo "You reserved copy ". $_POST["selection"]."<br>";
+  mysqli_query($conn,"
+  UPDATE copy SET STAT = ".$id." WHERE copy.COPYNO = ". $_POST["selection"].";");
   mysqli_close($conn);
 }
 ?>
