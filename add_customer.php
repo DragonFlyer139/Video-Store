@@ -37,7 +37,7 @@ Customers can also create their own account <a href="signup.php">here</a>.<br>
   {
     die("Connection failed: " . $conn->connect_error);
   }
-  echo "Connected successfully<br>";
+  //echo "Connected successfully<br>";
   //echo $sql;
   $result = $conn->query($sql);
   //echo $result;
@@ -52,5 +52,6 @@ Customers can also create their own account <a href="signup.php">here</a>.<br>
   
   
 ?>
+<a href="admin_menu.php">Back</a>
 </body>
 </html>

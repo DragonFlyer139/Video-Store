@@ -6,7 +6,7 @@
 
 # Requirements
 ### Submission requirements
-1. Description of implementation, problems faced
+1. ~~Description of implementation, problems faced~~
 2. Users' guide (<3 pages)
 6. A few screenshots of the major screens
 7. INDIVIDUAL submissions of what the different group members did, including yourself
@@ -39,22 +39,26 @@
 - ~~print top 10 most frequent renters in a store and the number of movies each has rented~~
 - ~~print top 10 most rented movies in a store~~
 - ~~print the 10 most popular movies of the year~~
-- find the avereage fine paid per customer
+- ~~find the avereage fine paid per customer~~
 - ~~Quit (log out)~~
 
 
 Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
-- Make sure you can get back to home/member_menu/etc from more specific function pages
+- ~~Make sure you can get back to home/member_menu/etc from more specific function pages~~
 - Make sure all query outputs display nicely (give them column headers, etc.)
-- Remove extra print statements
+- ~~Remove extra print statements~~
 - Make sure you have to be logged in to access member/admin pages
 - Add password verification for login pages
 - Fix movie return screen issue where it still shows the movie after you return it, until you refresh the screen
 - Add option to cancel a reservation on customer screen
 - Make reservations automatically cancel after a certain time
 - Use copy.amount to determine fee amount
-- Make IDs for copy, movie, etc auto-increment instead of assigning manually
+- ~~Make IDs for copy, movie, etc auto-increment instead of assigning manually~~
 - Remove multiple submit buttons on reserve/checkout forms
 - Add more transactions/members/etc so the top 10 screens fill out better
+- Make the movie return page save the fine amount to the relevant invoice_transaction row (so that average fine report will work)
+- Add screenshots to user guide in word doc (required)
+- Add screens for checking/setting employee salary, hours, etc
+- Add screens for checking out/returning dvd players
 
 ~~This is the syntax for crossing out :D~~

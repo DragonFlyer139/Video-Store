@@ -16,7 +16,7 @@
   {
     die("Connection failed: " . $conn->connect_error);
   }
-  echo "Connected successfully<br>";
+  //echo "Connected successfully<br>";
   
   $name = $_SESSION["adminname"];
   $id = $_SESSION["adminid"];
