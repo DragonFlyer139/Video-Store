@@ -40,7 +40,7 @@ $servername = "localhost";
 		<li><a href=\"#\">Top 10 Rented Movies Report</a></li>
 		<li><a href=\"#\">Top 10 Popular Movies Report</a></li>
 		<li><a href=\"#\">Average Fine Paid Per Customer</a></li>
-		<li><a href=\"#\">Quit(Log Out)</a></li>
+		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
 
 </ul>";
 }

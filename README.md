@@ -40,7 +40,7 @@
 - print top 10 most rented movies in a store
 - print the 10 most popular movies of the year
 - find the avereage fine paid per customer
-- Quit (log out)
+- ~~Quit (log out)~~
 
 
 Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
