@@ -37,8 +37,8 @@ $servername = "localhost";
 		<li><a href=\"add_admin.php\">Add New Admin</a></li>
 		<li><a href=\"store_information.php\">Store Information Report</a></li>
 		<li><a href=\"frequent_renters.php\">Top 10 Renters Report</a></li>
-		<li><a href=\"most_rented_movies.php\">Top 10 Rented Movies Report</a></li>
-		<li><a href=\"#\">Top 10 Popular Movies Report</a></li>
+		<li><a href=\"most_rented_movies.php\">Top 10 Rented Movies by Store Report</a></li>
+		<li><a href=\"popular_movies_by_year.php\">Top 10 Rented Movies by Year Report</a></li>
 		<li><a href=\"#\">Average Fine Paid Per Customer</a></li>
 		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
 
