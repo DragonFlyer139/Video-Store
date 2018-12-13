@@ -74,5 +74,6 @@
 	echo "<br>Admin ID: ".$employeeid."<br>Employee Name: ".$_POST["FirstName"]." ".$_POST["LastName"];
   }
 ?>
+<a href="admin_menu.php">Back</a>
 </body>
 </html>

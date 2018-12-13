@@ -26,7 +26,7 @@ $servername = "localhost";
 
 	echo "Hey there " . $name;
 
-	echo "<h3>Movie Return</h3>";
+	echo "<h3>Your Balance Owed</h3>";
 ?>
 
 <hr>

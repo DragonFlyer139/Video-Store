@@ -2,6 +2,7 @@
 <head></head>
 <body><hr>
 
+<h3>Movie Search Results</h3>
 <?php 
 session_start();
 $servername = "localhost";

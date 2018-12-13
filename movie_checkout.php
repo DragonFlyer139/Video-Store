@@ -79,8 +79,8 @@ if(isset($_POST['checkout_submit'])){
 	$sql="insert into invoice_transaction(stamp,type,copyno,memberid) values('".$date_rented."','Checkout','". $_POST["selection"]."','".$_SESSION["memberid"]."');";
 	$result = $conn->query($sql);
 	
-	echo $sql;
-	echo $result;
+	//echo $sql;
+	//echo $result;
 	mysqli_close($conn);
 }
 ?>

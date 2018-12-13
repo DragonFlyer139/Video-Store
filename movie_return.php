@@ -80,12 +80,12 @@ if(isset($_POST['return_submit'])){
 			$storeno = $row["storeno"];
 			$copyno = $row["copyno"];
 			$memberid = $row["memberid"];
-			echo("Rented on: ".$date_rented."<br>");
+			//echo("Rented on: ".$date_rented."<br>");
 		}
   
   //get date returned
   $date_returned = date("Y-m-d h:i:sa");
-  echo "Returned on: ".$date_returned."<br>";
+  //echo "Returned on: ".$date_returned."<br>";
   
   //TODO: create a fine entry for the returned item in invoice_transaction
   $sql = "insert into invoice_transaction(stamp,amount,type,storeno,copyno,memberid) values('"
@@ -96,11 +96,11 @@ if(isset($_POST['return_submit'])){
   $price_per_day = 1.75; //can change this as needed- get charge from store_charge table
   //new day starts at 8pm- count days it's been checked out
   $date1 = strtotime($date_returned);
-  echo $date1."<br>";
+  //echo $date1."<br>";
   $date2 = strtotime($date_rented);
-  echo $date2."<br>";
+  //echo $date2."<br>";
   $diff = $date1-$date2;
-  echo $diff."<br>";
+  //echo $diff."<br>";
   $diff_days = $diff/86400;//convert seconds to days
   //check if the last day was after 8 pm, if so, add one to day count
   function isAfter8pm($date) {

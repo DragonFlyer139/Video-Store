@@ -14,7 +14,7 @@
 	<input type = "Submit" value = "Sign Up">
 </form>
 <br>
-Don't have an account? Sign up <a href="signup.php">here</a>
+<a href="member_login.php">Back to login page</a>
 
 <?php
 
@@ -37,7 +37,7 @@ Don't have an account? Sign up <a href="signup.php">here</a>
   {
     die("Connection failed: " . $conn->connect_error);
   }
-  echo "Connected successfully<br>";
+  //echo "Connected successfully<br>";
   //echo $sql;
   $result = $conn->query($sql);
   //echo $result;
