@@ -37,7 +37,7 @@
 - ~~add new admin~~
 - ~~print store information~~ (name and location) (do we need to assign a name to stores or is id/address/phone good enough?)
 - ~~print top 10 most frequent renters in a store and the number of movies each has rented~~
-- print top 10 most rented movies in a store
+- ~~print top 10 most rented movies in a store~~
 - print the 10 most popular movies of the year
 - find the avereage fine paid per customer
 - ~~Quit (log out)~~
@@ -55,5 +55,6 @@ Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
 - Use copy.amount to determine fee amount
 - Make IDs for copy, movie, etc auto-increment instead of assigning manually
 - Remove multiple submit buttons on reserve/checkout forms
+- Add more transactions/members/etc so the top 10 screens fill out better
 
 ~~This is the syntax for crossing out :D~~
