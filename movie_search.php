@@ -1,29 +1,28 @@
 <html>
 <head></head>
 <body>
-<?php 
+<?php
 
-//You need to add some security statements to make 
-//sure things only 
+//You need to add some security statements to make
+//sure things only
 session_start();
 //echo "session started<br>";
 $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "video_store"; 
-	
+    $dbname = "video_store";
+
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
-	
+
     // Check connection
     if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
     }
-	
+
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
-	
-	echo "Here you say hi to the person if you want" . "<br>";
+
 	echo "Hey there " . $name;
 ?>
 
@@ -38,6 +37,6 @@ $servername = "localhost";
 	Search: <input name="search" type="text">
 	<input type="submit">
 </form>
-
+<a href="member_menu.php">Back</a>
 </body>
 </html>
