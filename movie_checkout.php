@@ -69,8 +69,12 @@ if(isset($_POST['submit'])){ //check if form was submitted
 if(isset($_POST['checkout_submit'])){
 	echo "congrats, you checked out a movie, but not really<br>";
 	echo "You checked out copy ". $_POST["selection"]."<br>";
-  mysqli_query($conn,"
-  UPDATE copy SET STAT = 'checkout' WHERE copy.COPYNO = ". $_POST["selection"].";");
+  mysqli_query($conn,"UPDATE copy SET STAT = 'Checkout' WHERE copy.COPYNO = ". $_POST["selection"].";");
+  $date_rented = date("Y-m-d h:i:s");
+  $sql="insert into invoice_transaction(stamp,type,copyno,memberid) values('".$date_rented."','Checkout','". $_POST["selection"]."','".$_SESSION["memberid"]."');";
+  $result = $conn->query($sql);
+  echo $sql;
+  echo $result;
   mysqli_close($conn);
 }
 ?>

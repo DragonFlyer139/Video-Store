@@ -60,7 +60,7 @@ VALUES ("1", "Batman Begins", "Christopher Nolan", "Emma Thomas", "Christian Bal
 	   ("5", "Pokemon 2000", "Kunihiko Yuyama", "Choji Yoshikawa", "Ikue Otani", "Unsho Ishizuka", "Anime"),
 	   ("6", "Wolf of Wall Street", "Martin Scorsese", "Leonardo DiCaprio", "Leonardo DiCaprio", "Margot Robbie", "Comedy");
 
-INSERT INTO MEMBER
+INSERT INTO MEMBER(memberid,address,membername,password)
 VALUES ("123456", "514 Happy Address", "Ryan Zunker","password1"),
 	   ("234567", "845 Other Street", "Maggi Lopez","maggi123"),
 	   ("345678", "215 Name of Street", "Leo Carrico","mypassword");
@@ -124,10 +124,10 @@ VALUES ("1", "DP132", "LG", "Multi-Format"),
 		I'm not dealing with decimals or change.
 */
 
-INSERT INTO INVOICE_TRANSACTION
-VALUES ("1", "2018-12-01", 7, "Checkout", "1", "3", "123456"),
-	   ("2", "2018-12-05", 3, "Fine", "1", "3", "123456"),
-	   ("3", "2018-12-10", 7, "Checkout", "2", "12", "234567");
+INSERT INTO INVOICE_TRANSACTION(stamp,amount,type,storeno,copyno,memberid)
+VALUES ("2018-12-01", 7, "Checkout", "1", "3", "123456"),
+	   ("2018-12-05", 3, "Fine", "1", "3", "123456"),
+	   ("2018-12-10", 7, "Checkout", "2", "12", "234567");
 
 INSERT INTO `HWORKS` (`EMPLOYEEID`, `RATE`, `HOURS`, `STORENO`) VALUES ('1', '15', '30', '1');
 INSERT INTO `HWORKS` (`EMPLOYEEID`, `RATE`, `HOURS`, `STORENO`) VALUES ('2', '15', '30', '2');
