@@ -39,7 +39,7 @@ $servername = "localhost";
 		<li><a href=\"frequent_renters.php\">Top 10 Renters Report</a></li>
 		<li><a href=\"most_rented_movies.php\">Top 10 Rented Movies by Store Report</a></li>
 		<li><a href=\"popular_movies_by_year.php\">Top 10 Rented Movies by Year Report</a></li>
-		<li><a href=\"#\">Average Fine Paid Per Customer</a></li>
+		<li><a href=\"average_fine_report.php\">Average Fine Paid Per Customer</a></li>
 		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
 
 </ul>";
