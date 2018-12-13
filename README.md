@@ -32,7 +32,7 @@
 - ~~Quit (log out)~~
 3. Administrative Functions Menu: 
 - ~~add a movie copy~~
-- search a movie and check the status of its copies
+- ~~search a movie and check the status of its copies~~
 - ~~add new customer~~
 - ~~add new admin~~
 - ~~print store information~~ (name and location) (do we need to assign a name to stores or is id/address/phone good enough?)

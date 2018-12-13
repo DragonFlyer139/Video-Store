@@ -32,7 +32,7 @@ $servername = "localhost";
 	echo "<h3>Admin Functions</h3>
 <ul>
 		<li><a href=\"add_movie_copy.php\">Add a Movie Copy</a></li>
-		<li><a href=\"#\">Search Movie/Check Copy Status</a></li>
+		<li><a href=\"admin_movie_search.php\">Search Movie/Check Copy Status</a></li>
 		<li><a href=\"add_customer.php\">Add New Customer</a></li>
 		<li><a href=\"add_admin.php\">Add New Admin</a></li>
 		<li><a href=\"store_information.php\">Store Information Report</a></li>

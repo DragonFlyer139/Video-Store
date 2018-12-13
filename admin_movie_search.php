@@ -1,5 +1,5 @@
 <html>
-<head><title>Movie Search</title></head>
+<head><title>Admin Movie Search</title></head>
 <body>
 <?php
 
@@ -20,14 +20,14 @@ $servername = "localhost";
 		die("Connection failed: " . $conn->connect_error);
     }
 
-    $name = $_SESSION["membername"];
-	$id = $_SESSION["memberid"];
+    $name = $_SESSION["adminname"];
+	$id = $_SESSION["adminid"];
 
 	echo "Hey there " . $name;
 ?>
 
 <br><br>
-<form action="movie_search_target.php" method="post">
+<form action="admin_movie_search_target.php" method="post">
 	Search by: <select name="search_by">
 		<option value="Category">Category</option>
 		<option value="Title">Title</option>
@@ -37,6 +37,6 @@ $servername = "localhost";
 	Search: <input name="search" type="text">
 	<input type="submit">
 </form>
-<a href="member_menu.php">Back</a>
+<br><a href="admin_menu.php">Back</a>
 </body>
 </html>
