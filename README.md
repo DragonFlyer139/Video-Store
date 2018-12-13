@@ -34,7 +34,7 @@
 - ~~add a movie copy~~
 - search a movie and check the status of its copies
 - ~~add new customer~~
-- add new admin
+- ~~add new admin~~
 - print store information (name and location)
 - print top 10 most frequent renters in a store and the number of movies each has rented
 - print top 10 most rented movies in a store

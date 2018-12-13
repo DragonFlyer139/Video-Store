@@ -44,7 +44,7 @@ Customers can also create their own account <a href="signup.php">here</a>.<br>
   if($result)
   {
     echo "<br>User created successfully";
-    $_SESSION["membername"] = $_POST["FirstName"]." ".$_POST["LastName"];
+    //$_SESSION["membername"] = $_POST["FirstName"]." ".$_POST["LastName"];
   }
   else
     echo "<br>Failed to create user!";
