@@ -36,7 +36,7 @@
 - ~~add new customer~~
 - ~~add new admin~~
 - ~~print store information~~ (name and location) (do we need to assign a name to stores or is id/address/phone good enough?)
-- print top 10 most frequent renters in a store and the number of movies each has rented
+- ~~print top 10 most frequent renters in a store and the number of movies each has rented~~
 - print top 10 most rented movies in a store
 - print the 10 most popular movies of the year
 - find the avereage fine paid per customer
