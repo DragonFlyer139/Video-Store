@@ -6,7 +6,7 @@
 
 # Requirements
 ### Submission requirements
-1. Description of implementation, problems faced
+1. ~~Description of implementation, problems faced~~
 2. Users' guide (<3 pages)
 6. A few screenshots of the major screens
 7. INDIVIDUAL submissions of what the different group members did, including yourself
@@ -57,5 +57,8 @@ Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
 - Remove multiple submit buttons on reserve/checkout forms
 - Add more transactions/members/etc so the top 10 screens fill out better
 - Make the movie return page save the fine amount to the relevant invoice_transaction row (so that average fine report will work)
+- Add screenshots to user guide in word doc (required)
+- Add screens for checking/setting employee salary, hours, etc
+- Add screens for checking out/returning dvd players
 
 ~~This is the syntax for crossing out :D~~
