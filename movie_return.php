@@ -104,7 +104,7 @@ if(isset($_POST['return_submit'])){
   $diff_days = $diff/86400;//convert seconds to days
   //check if the last day was after 8 pm, if so, add one to day count
   function isAfter8pm($date) {
-    return(stripos(date_returned," 08:")&&stripos(date_returned,"pm"));
+    return(stripos($date," 08:")&&stripos($date,"pm"));
 }
   if(isAfter8pm($date_returned)){
 	  $diff_days = $diff_days+1;
@@ -115,7 +115,7 @@ if(isset($_POST['return_submit'])){
   function isWeekend($date) {
     return (date('N', strtotime($date)) >= 6);
 }
-  if (isWeekend(date_rented)){
+  if (isWeekend($date_rented)){
 	  $fee = $price_per_day*(1+floor($diff_days));
   }
   else {

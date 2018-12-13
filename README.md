@@ -22,13 +22,13 @@
 - Administrative Functions (ask for ID and password, and then show submenu)
 - Quit
 2. Customer Functions Submenu:
-- Search a movie by category, title, or director name
-- movie checkout
-- movie return
+- ~~Search a movie by category, title, or director name~~ 
+- ~~movie checkout~~
+- ~~movie return~~
 - movie reserve
-- compute fine (for a movie copy checked out by a customer based on current date)
-- print the list of movies reserved by a customer and their status
-- print the movie ids and movie titles of movies directed by a director
+- ~~compute fine (for a movie copy checked out by a customer based on current date)~~
+- ~~print the list of movies reserved by a customer~~ and their status
+- ~~print the movie ids and movie titles of movies directed by a director~~ (this can be done in search)
 - ~~Quit (log out)~~
 3. Administrative Functions Menu: 
 - add a movie copy
@@ -40,5 +40,17 @@
 - print the 10 most popular movies of the year
 - find the avereage fine paid per customer
 - Quit (log out)
+
+
+Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
+- Make sure you can get back to home/member_menu/etc from more specific function pages
+- Make sure all query outputs display nicely (give them column headers, etc.)
+- Remove extra print statements
+- Make sure you have to be logged in to access member/admin pages
+- Add password verification for login pages
+- Fix movie return screen issue where it still shows the movie after you return it, until you refresh the screen
+- Add option to cancel a reservation on customer screen
+- Make reservations automatically cancel after a certain time
+- Use copy.amount to determine fee amount
 
 ~~This is the syntax for crossing out :D~~

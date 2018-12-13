@@ -37,7 +37,6 @@ $servername = "localhost";
 		<li><a href=\"movie_reserve.php\">Movie Reserve</a></li>
 		<li><a href=\"movie_fines.php\">Movie Fines</a></li>
 		<li><a href=\"movie_reservesearch.php\">Reserved Movies</a></li>
-		<li><a>Movies by Director</a></li>
 		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
 
 </ul>";
