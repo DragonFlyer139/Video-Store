@@ -33,7 +33,7 @@ $servername = "localhost";
 
 	echo "<h3> Your Reserved Movies: </h3>";
 
-	$sql = "select title, director, COPYNO from movie, copy where copy.movieid=movie.movieid and stat=". $id .";";
+	$sql = "select title, director, copyno from movie, copy where copy.movieid=movie.movieid and stat=". $id .";";
 
 	$result = $conn->query($sql);
 
@@ -41,12 +41,19 @@ $servername = "localhost";
 	  echo "No results found." . "<br>";
 	else
 	{
+		echo "<table style=\"width: 100%\">";
+		echo "<th>Title</th>
+			  <th>Director</th>
+			  <th>Copy Number</th>";
 		while($row = $result->fetch_assoc()) {
-			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
+			echo "<tr><td>".implode("</td><td>", $row) . "</td><tr>";
+			//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
 	}
+					echo "</table>";
+
 }
 ?>
 <a href="member_menu.php">Back</a>

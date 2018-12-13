@@ -54,13 +54,20 @@ $servername = "localhost";
     else
     {
 		$count = 0;
+		echo "<table style=\"width: 100%\">";
+		echo "<th>MemberID</th>
+			  <th>Name</th>
+			  <th>Movies Rented</th>";
 		while($row = $result->fetch_assoc() and $count<10) {
-			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
+			echo "<tr><td>".implode("</td><td>", $row) . "</td><tr>";
+			//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
 			$count = $count+1;
 		}
+				echo "</table>";
+
     }
 	}
 ?>

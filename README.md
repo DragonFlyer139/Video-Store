@@ -45,7 +45,7 @@
 
 Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
 - ~~Make sure you can get back to home/member_menu/etc from more specific function pages~~
-- Make sure all query outputs display nicely (give them column headers, etc.)
+- ~~Make sure all query outputs display nicely (give them column headers, etc.)~~
 - ~~Remove extra print statements~~
 - Make sure you have to be logged in to access member/admin pages
 - Add password verification for login pages
