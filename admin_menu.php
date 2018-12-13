@@ -31,7 +31,7 @@ $servername = "localhost";
 
 	echo "<h3>Admin Functions</h3>
 <ul>
-		<li><a href=\"#\">Add a Movie Copy</a></li>
+		<li><a href=\"add_movie_copy.php\">Add a Movie Copy</a></li>
 		<li><a href=\"#\">Search Movie/Check Copy Status</a></li>
 		<li><a href=\"#\">Add New Customer</a></li>
 		<li><a href=\"#\">Add New Admin</a></li>

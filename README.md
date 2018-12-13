@@ -31,7 +31,7 @@
 - ~~print the movie ids and movie titles of movies directed by a director~~ (this can be done in search)
 - ~~Quit (log out)~~
 3. Administrative Functions Menu: 
-- add a movie copy
+- add a movie copy (partially complete, Emma is working on this)
 - search a movie and check the status of its copies
 - add new customer
 - add new admin
@@ -53,5 +53,7 @@ Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
 - Add option to cancel a reservation on customer screen
 - Make reservations automatically cancel after a certain time
 - Use copy.amount to determine fee amount
+- Make IDs for copy, movie, etc auto-increment instead of assigning manually
+- Remove multiple submit buttons on reserve/checkout forms
 
 ~~This is the syntax for crossing out :D~~

@@ -28,15 +28,15 @@ if you want to delete, the code for that is something like:
 	where condition;
 */
 
-insert into store
-values ("1", "777 lucky street", "545692459"),
-	   ("2", "312 some address", "845692145");
+insert into store(saddress,sphone)
+values ("777 Lucky Street", "545692459"),
+	   ("312 Some Address", "845692145");
 	   
-insert into employee
-values ("john smith", "1", "547 rando street","654125479","123456"),
-	   ("jane doe", "2", "327 crazy street","654125478","123456"),
-	   ("ben moskow", "3", "574 ahhh street","648254789","123456"),
-	   ("sarah stauber", "4", "764 amazing street","872145698","123456");
+insert into employee(name,address,phone,password)
+values ("John Smith", "547 Rando Street","654125479","123456"),
+	   ("Jane Doe", "327 Crazy Street","654125478","123456"),
+	   ("Ben Moskow", "574 Ahhh Street","648254789","123456"),
+	   ("Sarah Stauber", "764 Amazing Street","872145698","123456");
 	   
 	   
 /*
@@ -52,18 +52,18 @@ wolf of wall street
 ted 2
 */
 
-insert into movie
-values ("1", "batman begins", "christopher nolan", "emma thomas", "christian bale", "katie holmes", "action"),
-	   ("2", "great gatsby", "baz luhrmann", "baz luhrmann", "leonardo dicaprio", "carey mulligan", "romance"),
-	   ("3", "fight club", "david fincher", "art linson", "brad pitt", "edward norton", "action"),
-	   ("4", "titanic", "james cameron", "james cameron", "leonardo dicaprio", "kate winslet", "romance"),
-	   ("5", "pokemon 2000", "kunihiko yuyama", "choji yoshikawa", "ikue otani", "unsho ishizuka", "anime"),
-	   ("6", "wolf of wall street", "martin scorsese", "leonardo dicaprio", "leonardo dicaprio", "margot robbie", "comedy");
+insert into movie(title,director,producer,actor1,actor2,category)
+values ("Batman Begins", "Christopher Nolan", "Emma Thomas", "Christian Bale", "Katie Holmes", "action"),
+	   ("The Great Gatsby", "Baz Luhrmann", "Baz Luhrmann", "Leonardo DiCaprio", "Carey Mulligan", "romance"),
+	   ("Fight Club", "David Fincher", "Art Linson", "Brad Pitt", "Edward Norton", "action"),
+	   ("Titanic", "James Cameron", "James Cameron", "Leonardo DiCaprio", "Kate Winslet", "romance"),
+	   ("Pokemon 2000", "Kunihiko Yuyama", "Choji Yoshikawa", "Ikue Otani", "Unsho Ishizuka", "anime"),
+	   ("The Wolf of Wall Street", "Martin Scorsese", "Leonardo DiCaprio", "Leonardo DiCaprio", "Margot Robbie", "comedy");
 
 insert into member(memberid,address,membername,password)
-values ("123456", "514 happy address", "ryan zunker","password1"),
-	   ("234567", "845 other street", "maggi lopez","maggi123"),
-	   ("345678", "215 name of street", "leo carrico","mypassword");
+values ("123456", "514 Happy Address", "Ryan Zunker","password1"),
+	   ("234567", "845 Other Street", "Maggi Lopez","maggi123"),
+	   ("345678", "215 Name Of Street", "Leo Carrico","mypassword");
 
 	   
 	   
@@ -75,40 +75,40 @@ values ("123456", "514 happy address", "ryan zunker","password1"),
 		in-store
 		checked out
 */
-insert into copy
-values ("1", "blu-ray", "in-store", "1"),
-	   ("2", "blu-ray", "in-store", "1"),
-	   ("3", "dvd", "in-store", "1"),
-	   ("4", "dvd", "in-store", "1"),
-	   ("5", "blu-ray", "in-store", "2"),
-	   ("6", "blu-ray", "in-store", "2"),
-	   ("7", "dvd", "in-store", "2"),
-	   ("8", "dvd", "in-store", "2"),
-	   ("9", "blu-ray", "in-store", "3"),
-	   ("10", "blu-ray", "in-store", "3"),
-	   ("11", "dvd", "in-store", "3"),
-	   ("12", "dvd", "in-store", "3"),
-	   ("13", "blu-ray", "in-store", "4"),
-	   ("14", "blu-ray", "in-store", "4"),
-	   ("15", "dvd", "in-store", "4"),
-	   ("16", "dvd", "in-store", "4"),
-	   ("17", "blu-ray", "in-store", "5"),
-	   ("18", "blu-ray", "in-store", "5"),
-	   ("19", "dvd", "in-store", "5"),
-	   ("20", "dvd", "in-store", "5"),
-	   ("21", "blu-ray", "in-store", "6"),
-	   ("22", "blu-ray", "in-store", "6"),
-	   ("23", "dvd", "in-store", "6"),
-	   ("24", "dvd", "in-store", "6"),
-	   ("25", "blu-ray", "in-store", "6"),
-	   ("26", "blu-ray", "in-store", "6"),
-	   ("27", "dvd", "in-store", "6"),
-	   ("28", "dvd", "in-store", "6");
+insert into copy(type,stat,movieid)
+values ("blu-ray", "in-store", "1"),
+	   ("blu-ray", "in-store", "1"),
+	   ("dvd", "in-store", "1"),
+	   ("dvd", "in-store", "1"),
+	   ("blu-ray", "in-store", "2"),
+	   ("blu-ray", "in-store", "2"),
+	   ("dvd", "in-store", "2"),
+	   ("dvd", "in-store", "2"),
+	   ("blu-ray", "in-store", "3"),
+	   ("blu-ray", "in-store", "3"),
+	   ("dvd", "in-store", "3"),
+	   ("dvd", "in-store", "3"),
+	   ("blu-ray", "in-store", "4"),
+	   ("blu-ray", "in-store", "4"),
+	   ("dvd", "in-store", "4"),
+	   ("dvd", "in-store", "4"),
+	   ("blu-ray", "in-store", "5"),
+	   ("blu-ray", "in-store", "5"),
+	   ("dvd", "in-store", "5"),
+	   ("dvd", "in-store", "5"),
+	   ("blu-ray", "in-store", "6"),
+	   ("blu-ray", "in-store", "6"),
+	   ("dvd", "in-store", "6"),
+	   ("dvd", "in-store", "6"),
+	   ("blu-ray", "in-store", "6"),
+	   ("blu-ray", "in-store", "6"),
+	   ("dvd", "in-store", "6"),
+	   ("dvd", "in-store", "6");
 	   
 	   
-insert into player
-values ("1", "dp132", "lg", "multi-format"),
-	   ("2", "ubpx1000ex", "sony", "4k ultra hd");
+insert into player(model,brand,playerfeature)
+values ("dp132", "LG", "multi-format"),
+	   ("ubpx1000ex", "Sony", "4k ultra hd");
 
 /*
 	invoice_transaction
