@@ -1,5 +1,6 @@
 # To-Do List
 + get everyone updated
++ use ONLY lowercase for sql and sql references
 + finish php code by Thursday, 12/13
 + turn in with styles by 9AM Friday, 12/14
 
