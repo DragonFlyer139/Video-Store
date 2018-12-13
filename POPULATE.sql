@@ -87,7 +87,7 @@ values ("blu-ray", "in-store", "1"),
 	   ("blu-ray", "in-store", "3"),
 	   ("blu-ray", "in-store", "3"),
 	   ("dvd", "in-store", "3"),
-	   ("dvd", "in-store", "3"),
+	   ("dvd", "checked out", "3"),
 	   ("blu-ray", "in-store", "4"),
 	   ("blu-ray", "in-store", "4"),
 	   ("dvd", "in-store", "4"),
@@ -127,7 +127,8 @@ values ("dp132", "LG", "multi-format"),
 
 insert into invoice_transaction(stamp,amount,type,storeno,copyno,memberid)
 values ("2018-12-01", 7, "checkout", "1", "3", "123456"),
-	   ("2018-12-05", 3, "fine", "1", "3", "123456"),
+	   ("2018-12-11", 0, "return", "1", "3", "123456"),
+	   ("2018-12-11", 3, "fine", "1", "3", "123456"),
 	   ("2018-12-10", 7, "checkout", "2", "12", "234567");
 
 insert into `hworks` (`employeeid`, `rate`, `hours`, `storeno`) values ('1', '15', '30', '1');
