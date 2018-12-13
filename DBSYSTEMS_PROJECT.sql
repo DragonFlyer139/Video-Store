@@ -68,7 +68,7 @@ references movie(movieid)
 on delete cascade);
 
 create table store_charge
-(chargeid int not null,
+(chargeid int not null auto_increment,
 dailycharge decimal(10,2) not null default '0',
 copyno int not null,
 primary key (chargeid),

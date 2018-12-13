@@ -24,8 +24,7 @@
 ?>
 
 <?php
-//this is the code to insert the new entries into the database. it's commented out bc it still throws errors
-/*
+
 	//if a copy has been created from an existing movie, put the copy in COPY and the daily price in STORE_CHARGE
 	if(isset($_POST["movieid"])){
 		$sql = "insert into copy(type,stat,movieid) values('".$_POST["Type"]."','In-Store','".$_POST["movieid"]."');";
@@ -33,6 +32,7 @@
 		if ($result) 
 			echo "Successfully added copy.<br>";
 		//get copyno for the copy you just inserted
+		$copyno = 0;
 		$sql = "select * from copy where type='".$_POST["Type"]."' and movieid='".$_POST["movieid"]."');";
 		$sql = "select max(copyno), type, copyno, movieid
 				from (
@@ -50,11 +50,12 @@
 			$copyno = isset($row["copyno"]) ? $row["copyno"] : 'NO_COPYNO_SET';
 		}
 		}
-
-		$sql = "insert into store_charge(dailycharge,copyno) values('".$_POST["Charge"]."','".$copyno."');"; //TODO: fix this
+		$sql = "insert into store_charge(dailycharge,copyno) values('".$_POST["Charge"]."','".$copyno."');";
 		$result = $conn->query($sql);
 		if ($result) 
 			echo "Successfully added rental fee amount.<br>";
+		//echo $copyno;
+		//echo $sql;
 	}
 	//if a copy has been created from a new movie, put the movie in MOVIE and the copy in COPY and the daily price in STORE_CHARGE
 	else if(isset($_POST["Title"]) && isset($_POST["Director"]) && isset($_POST["Producer"]) &&
@@ -67,7 +68,18 @@
 			echo "Successfully added movie.<br>";
 		
 		//get movieid
-		$sql = "select * from movie where title='".$_POST["Title"]."');";
+		$movieid = 0;
+		//$sql = "select * from movie where title='".$_POST["Title"]."' and movieid='".$_POST["movieid"]."');";
+		$sql = "select max(movieid), movieid, title
+				from (
+					select max(movieid), movieid, title
+					from movie
+					where title='".$_POST["Title"]."' and director='".$_POST["Director"]."'
+						and producer='".$_POST["Producer"]."' and actor1='".$_POST["Actor1"]."' 
+						and actor2='".$_POST["Actor2"]."' and category='".$_POST["Category"]."'
+					group by movieid
+					having max(movieid)=movieid) as ids
+				order by movieid desc";
 		$result = $conn->query($sql);
 		if ($result->num_rows == 0) 
 			echo "Movie not found." . "<br>";
@@ -78,13 +90,22 @@
 		}
 		
 		//insert copy
-		$sql = "insert into copy(type,stat,movieid) values('".$_POST["Type"]."','In-Store','".$_POST["movieid"]."');";//get movieid
+		$sql = "insert into copy(type,stat,movieid) values('".$_POST["Type"]."','In-Store','".$movieid."');";
 		$result = $conn->query($sql);
 		if ($result) 
 			echo "Successfully added copy.<br>";
 		
 		//get copyno for the copy you just inserted
-		$sql = "insert into copy(type,stat,movieid) values('".$_POST["Type"]."','In-Store','".$_POST["movieid"]."');";
+		$copyno = 0;
+		$sql = "select * from copy where type='".$_POST["Type"]."' and movieid='".$movieid."');";
+		$sql = "select max(copyno), type, copyno, movieid
+				from (
+					select max(copyno), type, copyno, movieid
+					from copy
+					where type='".$_POST["Type"]."' and movieid='".$movieid."'
+					group by copyno
+					having max(copyno)=copyno) as ids
+				order by copyno desc";
 		$result = $conn->query($sql);
 		if ($result->num_rows == 0) 
 			echo "Copy not found." . "<br>";
@@ -93,13 +114,11 @@
 			$copyno = isset($row["copyno"]) ? $row["copyno"] : 'NO_COPYNO_SET';
 		}
 		}
-
 		$sql = "insert into store_charge(dailycharge,copyno) values('".$_POST["Charge"]."','".$copyno."');";
 		$result = $conn->query($sql);
 		if ($result) 
 			echo "Successfully added rental fee amount.<br>";
-	}
-	*/
+}
 ?>
 
 <h3>Add a Copy of an Existing Movie</h3>
