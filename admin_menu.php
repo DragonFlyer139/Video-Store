@@ -33,7 +33,7 @@ $servername = "localhost";
 <ul>
 		<li><a href=\"add_movie_copy.php\">Add a Movie Copy</a></li>
 		<li><a href=\"#\">Search Movie/Check Copy Status</a></li>
-		<li><a href=\"#\">Add New Customer</a></li>
+		<li><a href=\"add_customer.php\">Add New Customer</a></li>
 		<li><a href=\"#\">Add New Admin</a></li>
 		<li><a href=\"#\">Store Information Report</a></li>
 		<li><a href=\"#\">Top 10 Renters Report</a></li>

@@ -31,9 +31,9 @@
 - ~~print the movie ids and movie titles of movies directed by a director~~ (this can be done in search)
 - ~~Quit (log out)~~
 3. Administrative Functions Menu: 
-- add a movie copy (partially complete, Emma is working on this)
+- ~~add a movie copy~~
 - search a movie and check the status of its copies
-- add new customer
+- ~~add new customer~~
 - add new admin
 - print store information (name and location)
 - print top 10 most frequent renters in a store and the number of movies each has rented
