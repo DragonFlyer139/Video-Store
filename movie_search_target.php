@@ -5,6 +5,10 @@
 <h3>Movie Search Results</h3>
 <?php 
 session_start();
+if (!isset($_SESSION["memberid"]))
+{
+		header("Location: login_check.php");
+}
 $servername = "localhost";
     $username = "root";
     $password = "";
@@ -29,12 +33,23 @@ $servername = "localhost";
       echo "No results found." . "<br>";
     else
     {
+		echo "<table style=\"width: 100%\">";
+		echo "<th>Movie ID</th>
+			  <th>Title</th>
+			  <th>Director</th>
+			  <th>Producer</th>
+			  <th>Actor 1</th>
+			  <th>Actor 2</th>
+			  <th>Category</th>";
 		while($row = $result->fetch_assoc()) {
-			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
+			echo "<tr><td>".implode("</td><td>", $row) . "</td><tr>";
+			//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
 		}
+				echo "</table>";
+
     }
 	}
 	else {

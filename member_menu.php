@@ -1,7 +1,7 @@
 <html>
-<head>
-	<title>Member Login | Video Store</title>
-	<meta charset = "UTF-8">
+<head><title>Member Homepage</title>
+<!--STYLES STUFF START-->
+<meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" href="img/icon.png">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
