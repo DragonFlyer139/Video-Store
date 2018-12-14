@@ -5,6 +5,10 @@
 <?php
 
   session_start();
+  if (!isset($_SESSION["memberid"]))
+{
+		header("Location: login_check.php");
+}
   $servername = "localhost";
   $username = "root";
   $password = "";

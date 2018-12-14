@@ -15,11 +15,14 @@
 	<input type = "Submit" value = "Add User">
 </form>
 <br>
-<a href="admin_login.php">Return to admin login.</a><br>
 
 <?php
 
   session_start();
+  if (!isset($_SESSION["adminid"]))
+{
+		header("Location: login_check_admin.php");
+}
   if(isset($_POST["FirstName"]) && isset($_POST["LastName"]) && isset($_POST["Address"]) && 
 	isset($_POST["Phone"]) && isset($_POST["Password"]) && isset($_POST["Password2"]))
   {

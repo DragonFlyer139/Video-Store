@@ -14,11 +14,13 @@
 	<input type = "Submit" value = "Sign Up">
 </form>
 <br>
-Customers can also create their own account <a href="signup.php">here</a>.<br>
-
 <?php
 
   session_start();
+    if (!isset($_SESSION["adminid"]))
+{
+		header("Location: login_check_admin.php");
+}
   if(isset($_POST["FirstName"]) || isset($_POST["LastName"]) || isset($_POST["UserName"]) || isset($_POST["Password"]) )
   {
   $sql = "insert into member (membername, memberid, password) values ('";

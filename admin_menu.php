@@ -8,10 +8,12 @@
 session_start();
 
 //check to make sure someone is logged in
-if (isset($_SESSION["adminid"]))
-{
 //echo "session started<br>";
 $servername = "localhost";
+   if (!isset($_SESSION["adminid"]))
+{
+		header("Location: login_check_admin.php");
+}
     $username = "root";
     $password = "";
     $dbname = "video_store";
@@ -43,12 +45,8 @@ $servername = "localhost";
 		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
 
 </ul>";
-}
+
 //if no one is logged in
-else
-{
-	echo "You are not logged in. Please <a href=\"admin_login.php\">log in</a>.";
-}
 ?>
 
 </body>
