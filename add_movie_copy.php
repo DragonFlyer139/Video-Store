@@ -3,6 +3,10 @@
 <body>
 <?php
   session_start();
+    if (!isset($_SESSION["adminid"]))
+{
+		header("Location: login_check_admin.php");
+}
   $servername = "localhost";
   $username = "root";
   $password = "";

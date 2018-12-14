@@ -9,6 +9,5 @@
 	Password: <input type = "password" name = "Password"><br>
 	<input type = "Submit" value = "Login">
 </form>
-
 </body>
 </html>

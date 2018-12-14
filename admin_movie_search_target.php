@@ -5,6 +5,10 @@
 <?php 
 session_start();
 $servername = "localhost";
+ if (!isset($_SESSION["adminid"]))
+{
+		header("Location: login_check_admin.php");
+}
     $username = "root";
     $password = "";
     $dbname = "video_store"; 

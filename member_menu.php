@@ -8,8 +8,10 @@
 session_start();
 
 //check to make sure someone is logged in
-if (isset($_SESSION["memberid"]))
+if (!isset($_SESSION["memberid"]))
 {
+		header("Location: login_check.php");
+}
 //echo "session started<br>";
 $servername = "localhost";
     $username = "root";
@@ -40,12 +42,6 @@ $servername = "localhost";
 		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
 
 </ul>";
-}
-//if no one is logged in
-else
-{
-	echo "You are not logged in. Please <a href=\"member_login.php\">log in</a> or <a href=\"signup.php\">sign up</a>.";
-}
 ?>
 
 </body>
