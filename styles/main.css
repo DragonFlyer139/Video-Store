@@ -97,3 +97,8 @@ button {
   background-color: #ff6238;
   color: #ffffff;
 }
+.text-top {
+  color: #ffffff;
+  text-transform: capitalize;
+  position: absolute;
+}
