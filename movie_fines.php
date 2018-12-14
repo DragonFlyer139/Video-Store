@@ -84,7 +84,7 @@ $servername = "localhost";
 if(isset($_POST['return_submit'])){
 	echo "Thanks for telling us you will be returning ". $title .". Please come to the store soon and return it.<br>";
   mysqli_query($conn,"
-  UPDATE copy SET STAT = 'In-Store' WHERE copy.COPYNO = ". $_POST["selection"].";");
+  update copy set stat = 'In-Store' where copy.copyno = ". $_POST["selection"].";");
   mysqli_close($conn);
 
 }
