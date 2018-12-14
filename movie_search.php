@@ -57,7 +57,7 @@ $servername = "localhost";
 				<!-- <div class="input-group-prepend">
 					<label class="input-group-text" for="inputGroupSelect01">Search by:</label>
 				</div> -->
-				<select class="custom-select" id="inputGroupSelect01">
+				<select name="search_by" class="custom-select" id="inputGroupSelect01">
 					<option selected>Search by:</option>
 					<option value="Category">Category</option>
 					<option value="Title">Title</option>
