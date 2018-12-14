@@ -74,10 +74,9 @@ $servername = "localhost";
 	
 ?>
 
-<br>
 <?php
 	//form for selecting movie to return
-	echo "<h4> Select a Movie to Return </h4>";
+	echo "";
 
 	$sql = "select distinct TITLE, copy.COPYNO from invoice_transaction, copy, movie where MEMBERID = " . "\"".$id. "\" AND invoice_transaction.COPYNO=copy.COPYNO and copy.MOVIEID=movie.MOVIEID and copy.stat='Checkout';";
 
@@ -86,7 +85,8 @@ $servername = "localhost";
 	  echo "No results found." . "<br>";
 	else
 	{
-		echo '<div class="upper-names">';
+		echo '<h4> Select a movie to return </h4>
+		<div class="upper-names">';
 		while($row = $result->fetch_assoc()) {
       $title = $row["TITLE"];
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
@@ -97,7 +97,7 @@ $servername = "localhost";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
-			echo "<button name=\"return_submit\" type=\"submit\" class=\"btn button\">Submit</button>";
+			echo "<button name=\"return_submit\" type=\"submit\" class=\"btn button\">Return</button>";
 			echo "</form>";
 		}
 		echo '</div>';

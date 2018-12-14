@@ -1,5 +1,5 @@
 <html>
-<head><title>Movie Reserve Search</title>
+<head><title>Movie Reserve Search | Video Store</title>
 <!--STYLES STUFF START-->
 <meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
@@ -18,8 +18,6 @@
 
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 <?php
@@ -48,22 +46,24 @@ $servername = "localhost";
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
 
-	echo "Hey there " . $name;
+	echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 
-	echo "<h3>Reserved Movies</h3>";
 ?>
 
-<hr>
+<div class="main-section">
+	<div class="modal-content">
+		<h2>Reserved Movies</h2>
 <?php
-
-	echo "<h3> Your Reserved Movies: </h3>";
 
 	$sql = "select title, director, copyno from movie, copy where copy.movieid=movie.movieid and stat=". $id .";";
 
 	$result = $conn->query($sql);
 
 	if ($result->num_rows == 0)
-	  echo "No results found." . "<br>";
+		echo "<h4> Movies Reserved </h4>
+		No results found." . "<br>";
 	else
 	{
 		echo "<table style=\"width: 100%\">";
@@ -81,6 +81,7 @@ $servername = "localhost";
 
 }
 ?>
+<br>
 <a href="member_menu.php">Back</a>
 <!--STYLES STUFF START-->
 </div>

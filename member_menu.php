@@ -1,5 +1,5 @@
 <html>
-<head><title>Member Homepage</title>
+<head><title>Member Homepage | Video Store</title>
 <!--STYLES STUFF START-->
 <meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">

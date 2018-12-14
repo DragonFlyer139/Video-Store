@@ -1,5 +1,5 @@
 <html>
-<head><title>Check Out A Movie</title>
+<head><title>Movie Checkout | Video Store</title>
 <!--STYLES STUFF START-->
 <meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
@@ -94,7 +94,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
-			echo '</div><input name="checkout_submit" type="submit" class="button">';
+			echo '</div><button name="checkout_submit" type="submit" class="btn button">Checkout</button>';
 			echo "</form>";
 		}
 	}
