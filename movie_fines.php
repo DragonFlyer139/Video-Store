@@ -59,7 +59,7 @@ $servername = "localhost";
 	$sql = "select balance from member where memberid = " . "\"".$id. "\";";
 
 	$result = $conn->query($sql);
-	if ($result->num_rows == 0){
+	if (!$result || ($result->num_rows == 0)){
 		echo "No balance found." . "<br>";
 	}
 	else
@@ -79,7 +79,7 @@ $servername = "localhost";
 			echo "</form>";
 		}
 }
-
+/*
 if(isset($_POST['return_submit'])){
 	echo "Thanks for telling us you will be returning ". $title .". Please come to the store soon and return it.<br>";
   mysqli_query($conn,"
@@ -87,6 +87,7 @@ if(isset($_POST['return_submit'])){
   mysqli_close($conn);
 
 }
+*/
 ?>
 <a href="member_menu.php">Back</a>
 
