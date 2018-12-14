@@ -24,7 +24,7 @@
 
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
-
+ 
 		// Check connection
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
@@ -34,9 +34,9 @@
 		$id = $_SESSION["memberid"];
 
 		echo '<div class="modal-dialog text-center">
-			<div class="text-top" margin-bottom: -52px;">
-				Hello, ' . $name .	
-			'</div>
+			<div class="text-top">
+				Hello, <span class="name-tag">' . $name .	
+			'</span></div>
 			<div class="main-section">
 				<div class="modal-content">
 					<h2>Member Menu</h2>
@@ -57,7 +57,12 @@
 			{
 				echo '<div class="main-section">
 					<div class="modal-content">
-						You are not logged in. Please <a href="member_login.php">log in</a> or <a href="signup.php">sign up</a>.
+						You are not logged in. 
+						<div class="menu">
+							<a href="member_login.php"><div class="menu-item quit" >Login</div></a>
+							<a href="signup.php"><div class="menu-item loud" >Sign Up</div></a>
+							<a href="index.php"><div class="menu-item">Return Home</div></a>
+						</div>
 					</div>
 				</div>';
 			}

@@ -17,8 +17,6 @@
 
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 <?php
@@ -47,9 +45,13 @@ $servername = "localhost";
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
 
-	echo "Hey there " . $name;
+	echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 
-	echo "<h3>Movie Return</h3>";
+	echo '<div class="main-section">
+		<div class="modal-content">
+			<h2>Movie Return</h2>';
 	
 	if(isset($_POST["selection"])){
 	$sql = "select m.title from movie m, copy c where c.movieid=m.movieid and c.copyno='".$_POST["selection"]."';";
@@ -72,10 +74,10 @@ $servername = "localhost";
 	
 ?>
 
-<hr>
+<br>
 <?php
 	//form for selecting movie to return
-	echo "<h3> Select Movie to Return </h3>";
+	echo "<h4> Select a Movie to Return </h4>";
 
 	$sql = "select distinct TITLE, copy.COPYNO from invoice_transaction, copy, movie where MEMBERID = " . "\"".$id. "\" AND invoice_transaction.COPYNO=copy.COPYNO and copy.MOVIEID=movie.MOVIEID and copy.stat='Checkout';";
 
@@ -84,6 +86,7 @@ $servername = "localhost";
 	  echo "No results found." . "<br>";
 	else
 	{
+		echo '<div class="upper-names">';
 		while($row = $result->fetch_assoc()) {
       $title = $row["TITLE"];
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
@@ -94,9 +97,10 @@ $servername = "localhost";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
-			echo "<input name=\"return_submit\" type=\"submit\">";
+			echo "<button name=\"return_submit\" type=\"submit\" class=\"btn button\">Submit</button>";
 			echo "</form>";
 		}
+		echo '</div>';
 }
 
 if(isset($_POST['return_submit'])){
@@ -167,7 +171,7 @@ if(isset($_POST['return_submit'])){
   //if a fee is due, create a fine transaction and add it to the member's balance
   if((floor($diff_days)-7)>0){
 	$fee = $price_per_day*(floor($diff_days)-7);
-	echo "The total amount owed for this rental is $".$fee.". See your <a href=\"movie_fines.php\">fines</a> page for your updated balance due.";
+	echo "The total amount owed for this rental is $".$fee.". <a href=\"movie_fines.php\"><button class=\"btn button\">Fines Due</button></a>";
 	$sql = "update member set balance=balance+".$fee." where memberid='".$_SESSION["memberid"]."';";
     mysqli_query($conn,$sql);
 	//create a fine entry for the returned item in invoice_transaction

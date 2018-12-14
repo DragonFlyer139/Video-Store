@@ -18,8 +18,6 @@
 
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 <?php
@@ -48,17 +46,23 @@ $servername = "localhost";
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
 
-	echo "Hey there " . $name;
-
-	echo "<h3>Movie Checkout</h3>";
-	echo "<br>NOTE: You will be charged $7 to rent a movie and can keep this movie for seven days. If you keep it for longer, you will be charged an additional fine.<br>";
-
+	echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 ?>
-
-<form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
-	Search by Title: <input name="title" type="text">
-	<input name="submit" type="submit">
-</form>
+<div class="main-section">
+	<div class="modal-content">
+		<h3>Movie Checkout</h3>
+		<div class="lt-text">
+			NOTE: You will be charged $7 to rent a movie and can keep this movie for seven days. If you keep it for longer, you will be charged an additional fine.
+		</div>
+		<br/>
+		<form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
+			<div class="form-group">
+				<input name="title" type="text" placeholder="Search by Title">
+			</div>
+			<button name="submit" type="submit" class="btn button">Search</button>
+		</form>
 
 <hr>
 <?php
@@ -80,15 +84,17 @@ if(isset($_POST['submit'])){ //check if form was submitted
 			
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
 
+			echo '<div class="upper-names">';
 			echo "<input type=\"radio\" name=\"selection\" value=";
 			echo "\"" . $row["copyno"] . "\"";
 			echo ">";
 			echo $row["copyno"] . " | ";
-			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
+			echo implode(" | ", $row) . "<br><br>";
+			//echo " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
-			echo "<input name=\"checkout_submit\" type=\"submit\">";
+			echo '</div><input name="checkout_submit" type="submit" class="button">';
 			echo "</form>";
 		}
 	}
@@ -97,7 +103,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 ?>
 <?php
 if(isset($_POST['checkout_submit'])){
-	echo "congrats, you checked out a movie, but not really<br>";
+	// echo "congrats, you checked out a movie, but not really<br>";
 	echo "You checked out copy ". $_POST["selection"]."<br>";
   
 	/*Charge $7 at checkout*/

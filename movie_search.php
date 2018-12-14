@@ -17,8 +17,6 @@
 
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 <?php
@@ -47,20 +45,36 @@ $servername = "localhost";
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
 
-	echo "Hey there " . $name;
+	echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 ?>
 
-<br><br>
-<form action="movie_search_target.php" method="post">
-	Search by: <select name="search_by">
-		<option value="Category">Category</option>
-		<option value="Title">Title</option>
-		<option value="Director">Director</option>
-	</select>
-	<br>
-	Search: <input name="search" type="text">
-	<input type="submit">
-</form>
+<div class="main-section">
+	<div class="modal-content">
+		<form action="movie_search_target.php" method="post">
+			<div class="input-group mb-3">
+				<!-- <div class="input-group-prepend">
+					<label class="input-group-text" for="inputGroupSelect01">Search by:</label>
+				</div> -->
+				<select class="custom-select" id="inputGroupSelect01">
+					<option selected>Search by:</option>
+					<option value="Category">Category</option>
+					<option value="Title">Title</option>
+					<option value="Director">Director</option>
+				</select>
+			</div>
+		<!-- <form action="movie_search_target.php" method="post">
+			Search by: <select name="search_by">
+				<option value="Category">Category</option>
+				<option value="Title">Title</option>
+				<option value="Director">Director</option>
+			</select> -->
+			<div class="form-group">
+				<input name="search" type="text" placeholder="Search">
+			</div>
+			<button type="submit" class="btn button">Search</button>
+		</form>
 <a href="member_menu.php">Back</a>
 
 <!--STYLES STUFF START-->

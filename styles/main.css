@@ -6,7 +6,7 @@ body {
 .main-section {
   max-width: 300px;
   /* height: 200px; */
-  margin: 130px auto 0;
+  margin: 100px auto 0;
   padding: 0;
 }
 .modal-content {
@@ -33,18 +33,6 @@ input {
 .form-group {
   margin: 10px 0;
 }
-/* .form-group::before {
-  font-family: 'Font Awesome\ 5 Free';
-  content: "\f007";
-  position: absolute;
-  font-size: 22px;
-  color: #444;
-  left: 28px;
-  padding-top: 4px;
-}
-.form-group:last-of-type::before {
-  content: "\f023";
-} */
 button {
   width: 40%;
   margin: 15px 0 15px;
@@ -76,6 +64,7 @@ button {
 .menu {
   list-style: none;
   width: 100%;
+  text-align: center;
 }
 .menu a .menu-item {
   background-color: #303c4e;
@@ -99,6 +88,35 @@ button {
 }
 .text-top {
   color: #ffffff;
+  margin-bottom: -52px;
+}
+.name-tag {
   text-transform: capitalize;
-  position: absolute;
+}
+.menu a:hover .loud {
+  background-color: #ffca27;
+  color: #ffffff;
+}
+.alert {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.button {
+  background-color: #303c4e;
+  color: #ffffff;
+  cursor: pointer;
+  border-bottom: 3px solid #303c4e;;
+  font-weight: 300;
+}
+.button:hover {
+  background-color: #212a37;
+  border-bottom: 3px solid #212a37;
+}
+.upper-names {
+  text-transform: capitalize;
+}
+.lower-words {
+  text-transform: lowercase;
 }

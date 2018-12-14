@@ -17,8 +17,6 @@
 
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 
@@ -48,16 +46,16 @@ $servername = "localhost";
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
 
-	echo "Hey there " . $name;
+	echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 
-	echo "<h3>Your Balance Owed</h3>";
 ?>
-
-<hr>
+<div class="main-section">
+	<div class="modal-content">
+		<h2>Balance Owed</h2>
+		<h4> Fines </h4>
 <?php
-
-	echo "<h3> Fines </h3>";
-
 	$sql = "select balance from member where memberid = " . "\"".$id. "\";";
 
 	$result = $conn->query($sql);
