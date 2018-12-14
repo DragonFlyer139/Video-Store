@@ -26,6 +26,26 @@ $servername = "localhost";
 	echo "Hey there " . $name;
 
 	echo "<h3>Movie Return</h3>";
+	
+	if(isset($_POST["selection"])){
+	$sql = "select m.title from movie m, copy c where c.movieid=m.movieid and c.copyno='".$_POST["selection"]."';";
+	$result = $conn->query($sql);
+	if ($result->num_rows == 0)
+	  echo "No results found." . "<br>";
+	else
+	{
+		while($row = $result->fetch_assoc()) {
+			$title = $row["title"];
+		}
+	}
+	
+	if(isset($_POST['return_submit'])){
+		echo "Thanks for telling us you will be returning ". $title .". Please come to the store soon and return it.<br>";
+		mysqli_query($conn,"UPDATE copy SET STAT = 'In-Store' WHERE copy.COPYNO = ". $_POST["selection"].";");
+	}
+	
+	}
+	
 ?>
 
 <hr>
@@ -56,8 +76,8 @@ $servername = "localhost";
 }
 
 if(isset($_POST['return_submit'])){
-	echo "Thanks for telling us you will be returning ". $title .". Please come to the store soon and return it.<br>";
-  mysqli_query($conn,"UPDATE copy SET STAT = 'In-Store' WHERE copy.COPYNO = ". $_POST["selection"].";");
+	/*echo "Thanks for telling us you will be returning ". $title .". Please come to the store soon and return it.<br>";
+  mysqli_query($conn,"UPDATE copy SET STAT = 'In-Store' WHERE copy.COPYNO = ". $_POST["selection"].";");*/
   
   //get date rented out
   $sql = "SELECT max(stamp), amount, type, storeno, copyno, memberid
@@ -133,6 +153,11 @@ if(isset($_POST['return_submit'])){
   }
   else {
 	 echo "No fee is due for this rental.";
+	 //create a return entry in invoice_transaction
+	 $sql = "insert into invoice_transaction(stamp,amount,type,storeno,copyno,memberid) values('"
+		.$date_returned."','".'0'."','Return','".$storeno."','".$copyno."','".$memberid."');";
+	//echo $sql;
+    $result = $conn->query($sql);
   }
   
   
