@@ -67,7 +67,7 @@ $servername = "localhost";
 	
 	if(isset($_POST['return_submit'])){
 		echo "Thanks for telling us you will be returning ". $title .". Please come to the store soon and return it.<br>";
-		mysqli_query($conn,"UPDATE copy SET STAT = 'In-Store' WHERE copy.COPYNO = ". $_POST["selection"].";");
+		mysqli_query($conn,"update copy set stat = 'In-Store' where copy.copyno = ". $_POST["selection"].";");
 	}
 	
 	}
@@ -78,7 +78,7 @@ $servername = "localhost";
 	//form for selecting movie to return
 	echo "";
 
-	$sql = "select distinct TITLE, copy.COPYNO from invoice_transaction, copy, movie where MEMBERID = " . "\"".$id. "\" AND invoice_transaction.COPYNO=copy.COPYNO and copy.MOVIEID=movie.MOVIEID and copy.stat='Checkout';";
+	$sql = "select distinct title, copy.copyno from invoice_transaction, copy, movie where memberid = " . "\"".$id. "\" and invoice_transaction.copyno=copy.copyno and copy.movieid=movie.movieid and copy.stat='Checkout';";
 
 	$result = $conn->query($sql);
 	if ($result->num_rows == 0)
@@ -88,10 +88,10 @@ $servername = "localhost";
 		echo '<h4> Select a movie to return </h4>
 		<div class="upper-names">';
 		while($row = $result->fetch_assoc()) {
-      $title = $row["TITLE"];
+      $title = $row["title"];
 			echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
 			echo "<input type=\"radio\" name=\"selection\" value=";
-			echo "\"" . $row["COPYNO"] . "\"";
+			echo "\"" . $row["copyno"] . "\"";
 			echo ">";
 			echo implode(" | ", $row) . "<br><br>";//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
@@ -108,14 +108,14 @@ if(isset($_POST['return_submit'])){
   mysqli_query($conn,"UPDATE copy SET STAT = 'In-Store' WHERE copy.COPYNO = ". $_POST["selection"].";");*/
   
   //get date rented out
-  $sql = "SELECT max(stamp), amount, type, storeno, copyno, memberid
-		FROM (
-			SELECT max(stamp), stamp, amount, type, storeno, copyno, memberid
-			FROM invoice_transaction
-			WHERE type='Checkout' and MEMBERID='".$_SESSION["memberid"]."'
-			GROUP BY copyno
+  $sql = "select max(stamp), amount, type, storeno, copyno, memberid
+		from (
+			select max(stamp), stamp, amount, type, storeno, copyno, memberid
+			from invoice_transaction
+			where type='Checkout' and memberid='".$_SESSION["memberid"]."'
+			group by copyno
 			having min(stamp)=stamp) as ids
-		ORDER BY COPYNO";
+		order by copyno";
   $result = $conn->query($sql);
   
   if ($result->num_rows == 0)
