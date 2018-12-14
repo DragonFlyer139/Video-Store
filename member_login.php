@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Video Store</title>
+	<title>Member Login | Video Store</title>
 	<meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" href="img/icon.png">
