@@ -1,5 +1,5 @@
 <html>
-<head><title>Movie Search</title>
+<head><title>Movie Search | Video Store</title>
 <!--STYLES STUFF START-->
 <meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
@@ -52,12 +52,13 @@ $servername = "localhost";
 
 <div class="main-section">
 	<div class="modal-content">
+		<h2>Movie Search</h2>
 		<form action="movie_search_target.php" method="post">
 			<div class="input-group mb-3">
 				<!-- <div class="input-group-prepend">
 					<label class="input-group-text" for="inputGroupSelect01">Search by:</label>
 				</div> -->
-				<select class="custom-select" id="inputGroupSelect01">
+				<select name="search_by" class="custom-select" id="inputGroupSelect01">
 					<option selected>Search by:</option>
 					<option value="Category">Category</option>
 					<option value="Title">Title</option>

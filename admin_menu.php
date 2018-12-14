@@ -1,5 +1,5 @@
 <html>
-<head><title>Admin Homepage</title>
+<head><title>Admin Homepage | Video Store</title>
 <!--STYLES STUFF START-->
 <meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
@@ -16,8 +16,6 @@
 <body>
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 <?php
@@ -47,29 +45,32 @@ $servername = "localhost";
     $name = $_SESSION["adminname"];
 	$id = $_SESSION["adminid"];
 
-	echo "Hey there " . $name;
+	echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 
-	echo "<h3>Admin Functions</h3>
-<ul>
-		<li><a href=\"add_movie_copy.php\">Add a Movie Copy</a></li>
-		<li><a href=\"admin_movie_search.php\">Search Movie/Check Copy Status</a></li>
-		<li><a href=\"add_customer.php\">Add New Customer</a></li>
-		<li><a href=\"add_admin.php\">Add New Admin</a></li>
-		<li><a href=\"store_information.php\">Store Information Report</a></li>
-		<li><a href=\"frequent_renters.php\">Top 10 Renters Report</a></li>
-		<li><a href=\"most_rented_movies.php\">Top 10 Rented Movies by Store Report</a></li>
-		<li><a href=\"popular_movies_by_year.php\">Top 10 Rented Movies by Year Report</a></li>
-		<li><a href=\"average_fine_report.php\">Average Fine Paid Per Customer</a></li>
-		<li><a href=\"quit.php\">Quit(Log Out)</a></li>
-
-</ul>";
+	echo '<div class="main-section">
+		<div class="modal-content">
+			<h2>Admin Functions</h2>
+			<div class="menu">
+				<a href="add_movie_copy.php"><div class="menu-item">Add a Movie Copy</div></a>
+				<a href="admin_movie_search.php"><div class="menu-item">Search Movie/Check Copy Status</div></a>
+				<a href="add_customer.php"><div class="menu-item">Add New Customer</div></a>
+				<a href="add_admin.php"><div class="menu-item">Add New Admin</div></a>
+				<a href="store_information.php"><div class="menu-item">Store Information Report</div></a>
+				<a href="frequent_renters.php"><div class="menu-item">Top 10 Renters Report</div></a>
+				<a href="most_rented_movies.php"><div class="menu-item">Top 10 Rented Movies by Store Report</div></a>
+				<a href="popular_movies_by_year.php"><div class="menu-item">Top 10 Rented Movies by Year Report</div></a>
+				<a href="average_fine_report.php"><div class="menu-item">Average Fine Paid Per Customer</div></a>
+				<a href="quit.php"><div class="menu-item quit">Log Out</div></a>
+			</div>
+		</div>
+	</div>';
 
 //if no one is logged in
 ?>
 
 <!--STYLES STUFF START-->
-</div>
-		</div>
 	</div>
 <!--STYLES STUFF END-->
 

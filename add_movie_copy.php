@@ -1,5 +1,5 @@
 <html>
-<head><title>Add Movie Copy</title>
+<head><title>Add Movie Copy | Video Store</title>
 <!--STYLES STUFF START-->
 <meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
@@ -18,8 +18,6 @@
 
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 
@@ -46,9 +44,13 @@
   
   $name = $_SESSION["adminname"];
   $id = $_SESSION["adminid"];
-  echo "Hey there " . $name."<br>";
+  echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 ?>
 
+<div class="main-section">
+			<div class="modal-content">
 <?php
 
 	//if a copy has been created from an existing movie, put the copy in COPY and the daily price in STORE_CHARGE
@@ -147,17 +149,21 @@
 }
 ?>
 
-<h3>Add a Copy of an Existing Movie</h3>
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-	Search by: <select name="Search_by">
-		<option value="Category">Category</option>
-		<option value="Title">Title</option>
-		<option value="Director">Director</option>
-	</select>
-	<br>
-	Search: <input name="Search" type="text">
-	<input type="submit" value="Search"><br>
-	</form> 
+<h3>Add a copy of Existing Movie</h3>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+	<div class="input-group mb-3">
+		<select class="custom-select" id="inputGroupSelect01">
+			<option selected>Search by:</option>
+			<option value="Category">Category</option>
+			<option value="Title">Title</option>
+			<option value="Director">Director</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<input name="Search" type="text" placeholder="Search">
+	</div>
+	<button type="submit" value="Search" class="btn button">Search</button>
+</form> 
 	
 	<?php
 	//display movies if a search has been entered
@@ -195,21 +201,37 @@
 	
 
 
-<h3>Add a Copy of a New Movie</h3>
-<br>
+<h3>Add a copy of a New Movie</h3>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-    Title: <input type="text" name = "Title"><br>
-    Director: <input type="text" name = "Director"><br>
-	Producer: <input type="text" name = "Producer"><br>
-	Actor1: <input type = "text" name = "Actor1"><br>
-	Actor2: <input type = "text" name = "Actor2"><br>
-	Category: <input type = "text" name = "Category"><br>
-	Copy Type: <select name="Type">
-				<option value="DVD">DVD</option>
-				<option value="Blu-Ray">Blu-ray</option>
-			   </select><br>
-	Daily Charge: <input type = "number" name = "Charge" step="0.01"><br>
-	<input type = "Submit" value = "Create Copy">
+	<div class="form-group">
+    <input type="text" name = "Title" placeholder="Title">
+    </div>
+	<div class="form-group">
+    <input type="text" name = "Director" placeholder="Director">
+		</div>
+	<div class="form-group">
+    <input type="text" name = "Producer" placeholder="Producer">
+		</div>
+	<div class="form-group">
+    <input type = "text" name = "Actor1" placeholder="Actor 1">
+		</div>
+	<div class="form-group">
+    <input type = "text" name = "Actor2" placeholder="Actor 2">
+		</div>
+	<div class="form-group">
+		<input type = "text" name = "Category" placeholder="Category">
+	</div>
+	<div class="input-group mb-3">
+		<select name="Type" class="custom-select" id="inputGroupSelect01">
+			<option selected>Copy Type:</option>	
+			<option value="DVD">DVD</option>
+			<option value="Blu-Ray">Blu-ray</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<input type = "number" name = "Charge" step="0.01" placeholder="Daily Charge">
+	</div>
+	<button type = "Submit" value = "Create Copy" class="btn button">Submit</button>
 </form>
 <br>
 <a href="admin_menu.php">Back</a>

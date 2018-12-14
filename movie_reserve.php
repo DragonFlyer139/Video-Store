@@ -1,5 +1,5 @@
 <html>
-<head><title>Reserve A Movie</title>
+<head><title>Movie Reserve | Video Store</title>
 <!--STYLES STUFF START-->
 <meta charset = "UTF-8">
 	<meta keyword name = "viewport" content = "width=device-width, initial-scale=1.0">
@@ -11,14 +11,13 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script> -->
-<!--STYLES STUFF END--></head>
+<!--STYLES STUFF END-->
+</head>
 <body>
 
 
 <!--STYLES STUFF START-->
 <div class="modal-dialog text-center">
-		<div class="main-section">
-			<div class="modal-content">
 <!--STYLES STUFF END-->
 
 <?php
@@ -47,21 +46,27 @@ $servername = "localhost";
     $name = $_SESSION["membername"];
 	$id = $_SESSION["memberid"];
 
-	echo "Hey there " . $name;
-
-	echo "<h3>Movie Reserve</h3>";
+	echo '<div class="text-top">
+		Hello, <span class="name-tag">' . $name;  
+	echo '</span></div>';
 ?>
 
-<form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
-	Search by Title: <input name="title" type="text">
-	<input name="submit" type="submit">
-</form>
+<div class="main-section">
+	<div class="modal-content">
+		<h2>Movie Reserve</h2>
+
+		<form action="<?=$_SERVER['PHP_SELF'];?>" method="post">	
+			<div class="form-group">
+				<input name="title" type="text" placeholder="Search by Title">
+			</div>
+			<button name="submit" type="submit" class="btn button">Search</button>
+		</form>
 
 <hr>
 <?php
 if(isset($_POST['submit'])){ //check if form was submitted
 
-	echo "<h3> Select Movie to Reserve </h3>";
+	echo "<h4> Select a Movie to Reserve </h4>";
 
 	$input = $_POST['title']; //get input text
   $sql = "select title, director, COPYNO from movie, copy where title like " . "\"%".$_POST["title"]. "%\" and copy.movieid=movie.movieid and copy.stat='in-store';";
@@ -80,7 +85,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
-			echo "<input name=\"reserve_submit\" type=\"submit\">";
+			echo "<button name=\"reserve_submit\" type=\"submit\" class=\"btn button\">Reserve</button>";
 			echo "</form>";
 		}
 	}
