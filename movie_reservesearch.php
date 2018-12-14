@@ -46,16 +46,41 @@ $servername = "localhost";
 			  <th>Director</th>
 			  <th>Copy Number</th>";
 		while($row = $result->fetch_assoc()) {
-			echo "<tr><td>".implode("</td><td>", $row) . "</td><tr>";
+
+
+      echo "<form action=\"" . $_SERVER['PHP_SELF'] . "\" method=\"post\">";
+			echo "<tr><td> <input type=\"radio\" name=\"selection\" value=";
+			echo "\"" . $row["copyno"] . "\"";
+			echo ">";
+			echo "" .implode("</td><td>", $row) . "";
+      echo "</td><tr>";
 			//. " - Title: " . $row["title"]. " ";
 			//echo " - Director: " . $row["director"] . " - Producer: " . $row["producer"];
 			//echo " - Actor1: " . $row["actor1"] . " - Actor2: " . $row["actor2"];
 			//echo " - Category: " . $row["category"];
 	}
-					echo "</table>";
 
+					echo "</table>";
+          echo "<input name=\"return\" type=\"submit\" value=\"Cancel reservation\">";
+          echo "</form>";
+          echo"<br> <br>";
 }
 ?>
+<<?php
+
+if(isset($_POST['return'])){
+	echo "You have canceled your reservation<br>";
+
+	/*Charge $7 at checkout*/
+
+	mysqli_query($conn,"UPDATE copy SET STAT = 'in-store' WHERE copy.COPYNO = ". $_POST["selection"].";");
+
+	//echo $sql;
+	//echo $result;
+	mysqli_close($conn);
+}
+
+ ?>
 <a href="member_menu.php">Back</a>
 </body>
 </html>
