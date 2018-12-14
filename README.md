@@ -47,12 +47,12 @@ Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
 - ~~Make sure you can get back to home/member_menu/etc from more specific function pages~~
 - ~~Make sure all query outputs display nicely (give them column headers, etc.)~~
 - ~~Remove extra print statements~~
-- Make sure you have to be logged in to access member/admin pages
-- Add password verification for login pages
+- ~~Make sure you have to be logged in to access member/admin pages~~
+- ~~Add password verification for login pages~~
 - Fix movie return screen issue where it still shows the movie after you return it, until you refresh the screen
 - Add option to cancel a reservation on customer screen
 - Make reservations automatically cancel after a certain time
-- Use copy.amount to determine fee amount
+- Use invoice_transaction.dailycharge to determine fee amount
 - ~~Make IDs for copy, movie, etc auto-increment instead of assigning manually~~
 - Remove multiple submit buttons on reserve/checkout forms
 - Add more transactions/members/etc so the top 10 screens fill out better
