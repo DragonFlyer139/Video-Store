@@ -59,8 +59,9 @@ $servername = "localhost";
 	$sql = "select balance from member where memberid = " . "\"".$id. "\";";
 
 	$result = $conn->query($sql);
-	if ($result->num_rows == 0)
-	  echo "No balance found." . "<br>";
+	if ($result->num_rows == 0){
+		echo "No balance found." . "<br>";
+	}
 	else
 	{
 		while($row = $result->fetch_assoc()) {
