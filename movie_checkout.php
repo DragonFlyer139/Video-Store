@@ -30,6 +30,8 @@ $servername = "localhost";
 	echo "Hey there " . $name;
 
 	echo "<h3>Movie Checkout</h3>";
+	echo "<br>NOTE: You will be charged $7 to rent a movie and can keep this movie for seven days. If you keep it for longer, you will be charged an additional fine.<br>";
+
 ?>
 
 <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
@@ -70,6 +72,7 @@ if(isset($_POST['submit'])){ //check if form was submitted
 		}
 	}
 }
+
 ?>
 <?php
 if(isset($_POST['checkout_submit'])){
@@ -80,7 +83,7 @@ if(isset($_POST['checkout_submit'])){
   
 	mysqli_query($conn,"UPDATE copy SET STAT = 'Checkout' WHERE copy.COPYNO = ". $_POST["selection"].";");
 	$date_rented = date("Y-m-d h:i:s");
-	$sql="insert into invoice_transaction(stamp,type,copyno,memberid) values('".$date_rented."','Checkout','". $_POST["selection"]."','".$_SESSION["memberid"]."');";
+	$sql="insert into invoice_transaction(stamp,amount,type,copyno,memberid) values('".$date_rented."','7','Checkout','". $_POST["selection"]."','".$_SESSION["memberid"]."');";
 	$result = $conn->query($sql);
 	
 	//echo $sql;

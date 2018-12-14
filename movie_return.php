@@ -34,7 +34,7 @@ $servername = "localhost";
 
 <hr>
 <?php
-
+	//form for selecting movie to return
 	echo "<h3> Select Movie to Return </h3>";
 
 	$sql = "select distinct TITLE, copy.COPYNO from invoice_transaction, copy, movie where MEMBERID = " . "\"".$id. "\" AND invoice_transaction.COPYNO=copy.COPYNO and copy.MOVIEID=movie.MOVIEID and copy.stat='Checkout';";
@@ -91,10 +91,7 @@ if(isset($_POST['return_submit'])){
   $date_returned = date("Y-m-d h:i:sa");
   //echo "Returned on: ".$date_returned."<br>";
   
-  //TODO: create a fine entry for the returned item in invoice_transaction
-  $sql = "insert into invoice_transaction(stamp,amount,type,storeno,copyno,memberid) values('"
-  .$date_returned."','".$amount."','Fine',".$storeno."','".$copyno."','".$memberid."');";
-  $result = $conn->query($sql);
+  
   
   //TODO: update the user's balance based on the days checked out
   $price_per_day = 1.75; //can change this as needed- get charge from store_charge table
@@ -114,22 +111,34 @@ if(isset($_POST['return_submit'])){
 	  $diff_days = $diff_days+1;
   }
   
-  
+  /*
   //10 percent discount on weekday rentals
   function isWeekend($date) {
     return (date('N', strtotime($date)) >= 6);
 }
   if (isWeekend($date_rented)){
-	  $fee = $price_per_day*(1+floor($diff_days));
+	  $fee = $price_per_day*(floor($diff_days));
   }
   else {
-	  $fee = $price_per_day*(1+.9*floor($diff_days));
+	  $fee = $price_per_day*(.9*floor($diff_days));
+  }
+  */
+  
+  //if a fee is due, create a fine transaction and add it to the member's balance
+  if((floor($diff_days)-7)>0){
+	$fee = $price_per_day*(floor($diff_days)-7);
+	echo "The total amount owed for this rental is $".$fee.". See your <a href=\"movie_fines.php\">fines</a> page for your updated balance due.";
+	$sql = "update member set balance=balance+".$fee." where memberid='".$_SESSION["memberid"]."';";
+    mysqli_query($conn,$sql);
+	//create a fine entry for the returned item in invoice_transaction
+    $sql = "insert into invoice_transaction(stamp,amount,type,storeno,copyno,memberid) values('"
+		.$date_returned."','".$fee."','Fine',".$storeno."','".$copyno."','".$memberid."');";
+    $result = $conn->query($sql);
+  }
+  else {
+	 echo "No fee is due for this rental.";
   }
   
-  echo "The total amount owed for this rental is $".$fee.". See your <a href=\"movie_fines.php\">fines</a> page for your updated balance due.";
-  
-  $sql = "update member set balance=balance+".$fee." where memberid='".$_SESSION["memberid"]."';";
-  mysqli_query($conn,$sql);
   
   mysqli_close($conn);
 
