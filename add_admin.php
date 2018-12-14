@@ -1,5 +1,6 @@
 <html>
-<head><title>Add Admin</title></head>
+<head><title>Add Admin</title>
+</head>
 <body>
 
 <h3>Enter New Admin Information</h3>

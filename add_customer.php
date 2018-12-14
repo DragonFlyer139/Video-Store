@@ -1,5 +1,6 @@
 <html>
-<head><title>Add Customer</title></head>
+<head><title>Add Customer</title>
+</head>
 <body>
 
 <h3>Enter Customer Information</h3>
