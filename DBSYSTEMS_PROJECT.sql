@@ -1,3 +1,5 @@
+/*create a database called video_store, then run the following commands within the database*/
+
 create table employee
 (name varchar(30) not null,
 employeeid int not null auto_increment,

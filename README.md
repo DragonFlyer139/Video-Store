@@ -49,16 +49,16 @@ Misc. Cleanup Tasks (for when we're done with the bare-bones functions)
 - ~~Remove extra print statements~~
 - ~~Make sure you have to be logged in to access member/admin pages~~
 - ~~Add password verification for login pages~~
-- Fix movie return screen issue where it still shows the movie after you return it, until you refresh the screen
+- ~~Fix movie return screen issue where it still shows the movie after you return it, until you refresh the screen~~
 - Add option to cancel a reservation on customer screen
 - Make reservations automatically cancel after a certain time
 - Use invoice_transaction.dailycharge to determine fee amount
 - ~~Make IDs for copy, movie, etc auto-increment instead of assigning manually~~
 - Remove multiple submit buttons on reserve/checkout forms
-- Add more transactions/members/etc so the top 10 screens fill out better
+- ~~Add more transactions/members/etc so the top 10 screens fill out better~~
 - Make the movie return page save the fine amount to the relevant invoice_transaction row (so that average fine report will work)
 - Add screenshots to user guide in word doc (required)
-- Add screens for checking/setting employee salary, hours, etc
-- Add screens for checking out/returning dvd players
+- Add screens for checking/setting employee salary, hours, etc?
+- Add screens for checking out/returning dvd players?
 
 ~~This is the syntax for crossing out :D~~
